@@ -1,14 +1,13 @@
 import {noView} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-fetch-client';
 import {inject} from 'aurelia-framework';
-import {SecretsManager} from '../utility/secretsManager';
-import { ElastiCache } from '../../../node_modules/aws-sdk/index';
+import {SecretsHandler} from '../utility/secretsHandler';
 
 @noView
-@inject(SecretsManager)
+@inject(SecretsHandler)
 export class SummaryApi {
-    constructor(SecretsManager) {
-        this.secretsManager = SecretsManager;
+    constructor(SecretsHandler) {
+        this.SecretsHandler = SecretsHandler;
         this.httpClient = new HttpClient();
         
         this.baseUrl = 'https://api.github.com/repos/dsab123/book-summaries/contents/summaries/'; 
@@ -33,7 +32,7 @@ export class SummaryApi {
 
     async getBookSummaryContents(bookTitle) {
         if (!this.isConfigured) {
-            await this.secretsManager.getGithubAccessToken().then(accessToken => {  
+            await this.SecretsHandler.getGithubAccessToken().then(accessToken => {  
                 this.GITHUB_ACCESS_TOKEN = accessToken;          
                 this.configure(); 
             });
