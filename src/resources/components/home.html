@@ -1,0 +1,27 @@
+<template>
+    <require from="../css/home.css"></require>
+    <require from="../value-converters/blog-post-blurb-prettifier"></require>
+
+    <h2 class="page-title">Home</h2>
+
+    <div show.bind="isLoading">
+        <h3 class="loading-text">${loadingText}</h3>
+        <h4 class="loading-text-tagline">${loadingTextTagline}</h4>
+    </div>
+
+    <div show.bind="!isLoading">
+        <h4 class="recent-posts-subtitle">Recent Posts</h4>
+        <ul>
+            <li class="post-title" repeat.for="post of postsList">
+                <a href="/#/blog/${post.id}/${post.slug}" class="post-links">
+                ${post.title}
+                <ul>
+                    <li class="post-teaser">
+                        ${post.teaser | blogPostBlurbPrettifier}
+                    </li>
+                </ul>
+                </a>
+            </li>
+        </ul>
+    </div>
+</template>

@@ -1,0 +1,54 @@
+<template>
+    <require from="../css/summary.css"></require>
+    <require from="aurelia-markdown"></require>
+    <require from="../value-converters/summary-quality-filter"></require>
+    <require from="../value-converters/summary-payoff-filter"></require>
+    <require from="../value-converters/asset-context"></require>
+
+    <div class="outer">
+
+        <p class="summary-book-title">${title}</p>
+        <br>
+        <p class="author">${author}</p>
+        <br>
+
+        <div class="metrics">
+            <div class="metrics-titles">
+                <p class="quality-title">Quality </p>
+                <p class="payoff-title">Payoff </p>
+            </div>
+            <div class="metrics-measures">
+                <p class="quality-measure">${quality | summaryQualityFilter}</p>
+                <p class="payoff-measure">${payoff | summaryPayoffFilter}</p>
+            </div>
+        </div>
+        <br>
+
+        <div class="inner">
+            <img class="summary-book-image" src="${image_uri | assetContext}"> 
+            <div class="teaser-and-button">
+                <p class="teaser">${teaser}</p>
+                <a href="${link}" target="_blank"><img class="buy-button" src="../../../static/amazon-button.png"></a>
+            </div>
+        </div>
+
+        <br>
+        <p class="review">Review</p>
+        <br>
+
+        <p class="summary-contents">
+            <markdown ref="summaryContents">
+            </markdown>
+        </p>
+
+        <br>
+        <p class="summary-contents">You can get yourself a copy of the book <a href="${link}" target="_blank">here</a>.</p>
+        <br>
+        <br>
+        <p if.bind="isPostLoaded" class="money-plea">
+          If you have found this content helpful, please consider supporting my work through paypal by clicking on the coffee cup at the bottom of this page. 
+        </p>
+
+    </div>
+
+</template>

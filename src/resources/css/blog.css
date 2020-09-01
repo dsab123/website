@@ -1,0 +1,119 @@
+:root {
+	--post-tag-color: #f57867;
+	--big-font-color: #542189;
+	--big-font-family: 'Merriweather', serif;
+	--small-font-family: 'Montserrat', sans-serif;
+}
+
+.page-title {
+	font-family: var(--big-font-family);
+}
+
+.preload-post {
+	overflow-y: hidden;
+	max-height: 0px; /* approximate max height */
+
+	transition-property: all;
+	transition-duration: 1s;
+	transition-timing-function: cubic-bezier(0, .1, 0.5, 1);
+	font-family: var(--small-font-family);
+}
+
+.slide-post-in {
+	max-height: 900000px;
+}
+
+.preload-related-posts {
+	overflow-y: hidden;
+	max-height: 0px; /* approximate max height */
+
+	transition-property: all;
+	transition-duration: 1s;
+	transition-timing-function: cubic-bezier(0, .1, 0.5, 1);
+	font-family: var(--small-font-family);
+}
+
+.slide-related-posts-in {
+	max-height: 600px;
+}
+
+.slide-related-posts-out {
+	max-height: 0px;
+}
+
+.post-tags {
+	padding-top: 8px;
+	font-family: var(--big-font-family); 
+	/* the above is because of the 'related'; I don't want a global p class */
+}
+
+.post-tag {
+	background: var(--post-tag-color);
+	margin-left: 10px;
+	padding: 8px;
+	text-decoration: none;
+	cursor: pointer;
+	font-family: var(--big-font-family);
+	color: var(--big-font-color);
+	font-size: 14px;
+}
+
+/* TODO reuse the dupe of this class in home */
+.post-links {
+    text-decoration: none;
+}
+
+.dim-overlay {
+	opacity: 0.3;
+}
+
+.post-contents {
+	white-space: pre-line;    
+}
+
+/* post contents html -> markdown formatting */
+
+.post-contents-container h4 {
+    margin-block-start: .5em;
+    margin-block-end: -1.5em;
+}
+
+.post-contents-container h4 + p {
+	margin-block-start: 2em;
+}
+
+.post-contents-container p + ul {
+	margin-block-start: -1em;
+}
+
+.post-contents-container ul + p {
+	margin-block-start: -1em;
+}
+
+.post-contents-container hr {
+	margin-block-start: -1em;
+	margin-block-end: -1em;
+}
+
+.money-plea {
+	font-style: italic;
+	font-family: var(--small-font-family);	
+}
+
+@media screen and (max-width: 768px) {
+	p {
+		font-size: 12px;
+	}
+
+	.blog-layout {
+		font-size: 12px;
+	}
+
+	.post-tag {
+		font-size: 12px;
+	}
+
+	.post-tags {
+		padding-bottom: 8px;
+	}
+}

@@ -1,0 +1,31 @@
+<template>
+    <require from="../css/footer.css"></require>
+    <require from="../value-converters/asset-context"></require>
+
+    <div class="horizontal-separator"></div>
+
+    <div class="footer-layout">
+        <div>
+            <img class="headshot" src="../../../static/headshot.jpg">
+        </div>
+        
+        <div class="personal-info footer-text">
+            <div>${blurbText}</div>
+            <div class="contact-links">
+                <ul class="contact-list">
+                    <li class="contact-list-item">
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                            <input type="hidden" name="cmd" value="_donations" />
+                            <input type="hidden" name="business" value="8Q32E3Q42WS3S" />
+                            <input type="hidden" name="currency_code" value="USD" />
+                            buy me a 
+                            <input type="image" class="coffee-cup" src="../../../static/coffee_cup.png" border="0" name="submit" title="Buy me a coffee" alt="Buy me a coffee" />
+                        </form>
+                    </li>
+                    <li class="contact-list-item"><a href="../../../static/Daniel_Sabbagh_Resume.pdf" target="_blank">resume</a></li>
+                    <li class="contact-list-item"><a href="https://github.com/dsab123" target="_blank">github</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>

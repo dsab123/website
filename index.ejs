@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"> 
+    <title>Daniel Sabbagh</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <meta property="og:title" content="Daniel Sabbagh's Blog"/>
+    <meta property="og:description" content="Blog, Book Reviews, Giveaways, and more!"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:image" content="https://danielsabbagh.com/static/headshot.jpg"/>
+    
+    <link rel="manifest" href="/manifest.json">
+    <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+    
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat" rel="stylesheet">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-69638158-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-69638158-1');
+    </script>
+    <base href="<%- htmlWebpackPlugin.options.metadata.baseUrl %>">
+    <!-- imported CSS are concatenated and added automatically -->
+  </head>
+  <body aurelia-app="main">
+  </body>
+</html>

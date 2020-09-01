@@ -1,0 +1,8 @@
+:root {
+	--big-font-family: 'Merriweather', serif;
+	--small-font-family: 'Montserrat', sans-serif;
+}
+
+.page-title {
+    font-family: var(--big-font-family);
+}

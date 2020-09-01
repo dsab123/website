@@ -1,0 +1,29 @@
+:root {
+	--big-font-color: #542189;
+	--big-font-family: 'Merriweather', serif;
+	--small-font-family: 'Montserrat', sans-serif;
+}
+
+.page-title {
+    font-family: var(--big-font-family);
+}
+
+.talks-blurbs {
+    font-family: var(--small-font-family);
+    font-size: 16px;
+}
+
+.talk-description {
+    font-family: var(--small-font-family);
+    font-size: 14px;
+}
+
+.talk-info {
+    font-family: var(--small-font-family);
+    font-size: 14px;
+}
+
+.talk-title {
+    font-family: var(--small-font-family);  
+    font-size: 16px;
+}

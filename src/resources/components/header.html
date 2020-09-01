@@ -1,0 +1,40 @@
+<template>
+    <require from="../css/header.css"></require>
+
+    <require from="../value-converters/menu-filters"></require>
+
+    <div class="converter" click.delegate="flipConverterText()">
+        <img class="converter-arrow"src="../../../static/ugly-arrow.png" height="200" width="200">
+        <p class="converter-text">${convertMenuItemsText}</p>
+    </div>
+      
+    <div class="header">
+        <div class="logo-title">
+            <a class="title" href="">${title}</a>
+            <div class="${hamburgerOpen ? 'hamburger toggle' : 'hamburger'}" click.delegate="toggleHamburger()">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </div>
+
+        <div class="${hamburgerOpen ? 'hamburger-menu slide-hamburger-menu-in': 'hamburger-menu slide-hamburger-menu-out'}">
+            <a repeat.for="nav of router.navigation" 
+                class="${nav.isActive ? 'hamburger-nav-item active' : 'hamburger-nav-item'}" 
+                href.bind="nav.href">
+                ${nav.title | menuFilters : convertNavItems}
+            </a>
+        </div>
+
+        <div class="header-top">
+            <div class="nav-items">
+                <a class="nav-item" repeat.for="nav of router.navigation" 
+                    class="${nav.isActive ? 'active' : ''}" 
+                    href.bind="nav.href">
+                    ${nav.title | menuFilters : convertNavItems}&nbsp;&nbsp;
+                </a>
+            </div>
+        </div>
+    </div>
+
+</template>

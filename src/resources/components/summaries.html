@@ -1,0 +1,38 @@
+<template>
+    <require from="../css/summaries.css"></require>
+    <require from="../value-converters/asset-context"></require>
+
+
+    <div class="outer">
+        <h2 class="page-title">Book Summaries</h2>
+
+        <p class="intro-text">${intro}</p>
+        <br>
+        <p class="disclaimer-text">${disclaimer}</p>
+        <br>
+        <p class="money-plea">${moneyPlea}</p>
+        <br>
+        <div repeat.for="summary of summaries">
+            <div class="card">
+                <img class="book-image" src="${summary.image_uri | assetContext}">
+                <!-- <img class="book-image" src="../../../static/spurgeons_sorrows.jpg"> -->
+                <div class="card-text">
+                    <p class="book-title">${summary.title}, by ${summary.author}</p>
+                    <p class="book-summary">${summary.teaser}</p>
+                    <div class="summary-detail">
+                        <p class="${summary.is_ready ? 'read-more' : 'hidden'}">
+                            <a class="post-links" click.delegate='populateBookSummary(summary.summary_id)'>
+                                read more
+                            </a>
+                        </p>
+                        <p class="${summary.is_ready ? 'hidden' : 'read-more'}">
+                            coming soon!
+                        </p>
+
+                        <a href="${summary.link}" target="_blank"><img class="amazon-link" src="../../../static/amazon.png"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

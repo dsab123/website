@@ -1,0 +1,34 @@
+:root {
+	--post-tag-color: #f57867;
+	--big-font-color: #542189;
+	--big-font-family: 'Merriweather', serif;
+	--small-font-family: 'Montserrat', sans-serif;
+}
+
+.post-links {
+    text-decoration: none;
+}
+
+.page-title, 
+.loading-text {
+    font-family: var(--big-font-family);
+}
+
+.loading-text-tagline {
+    font-family: var(--small-font-family);
+    font-size: 12px;
+}
+
+.recent-posts-subtitle {
+    font-family: var(--small-font-family);
+}
+
+.post-title {
+    font-family: var(--small-font-family);
+    font-size: 14px;
+}
+
+.post-teaser {
+    font-family: var(--small-font-family);
+    font-size: 12px;
+}

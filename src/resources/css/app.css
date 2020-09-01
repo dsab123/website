@@ -1,0 +1,25 @@
+.content {
+    width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body {
+    background-color: white;
+}
+
+.top-bar {
+    background: black;
+    padding-bottom: 3px;
+    margin-top: -8px;
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        width: 90vw;
+    }
+
+    code {
+        white-space: pre-wrap;
+    }
+}
