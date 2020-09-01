@@ -15,7 +15,7 @@
         <div repeat.for="summary of summaries">
             <div class="card">
                 <img class="book-image" src="${summary.image_uri | assetContext}">
-                <!-- <img class="book-image" src="../../../static/spurgeons_sorrows.jpg"> -->
+                <!-- <img class="book-image" src="../../../images/spurgeons_sorrows.jpg"> -->
                 <div class="card-text">
                     <p class="book-title">${summary.title}, by ${summary.author}</p>
                     <p class="book-summary">${summary.teaser}</p>
@@ -29,7 +29,7 @@
                             coming soon!
                         </p>
 
-                        <a href="${summary.link}" target="_blank"><img class="amazon-link" src="../../../static/amazon.png"></a>
+                        <a href="${summary.link}" target="_blank"><img class="amazon-link" src="../../../images/amazon.png"></a>
                     </div>
                 </div>
             </div>

@@ -8,7 +8,7 @@
   
   export class AssetContextValueConverter {
       toView(name) {
-        const assets = importAll(require.context('../../../static', false, /\.(png|jpe?g|svg)$/));
+        const assets = importAll(require.context('../../../images', false, /\.(png|jpe?g|svg)$/));
         return assets[name].hash;
       }
   }
