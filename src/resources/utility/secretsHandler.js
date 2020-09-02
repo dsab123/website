@@ -1,6 +1,6 @@
 import {noView} from 'aurelia-framework';
 import * as environment from '../../../config/environment.json';
-import * as SecretsManager from 'aws-sdk/clients/SecretsManager';
+var SecretsManager = require('aws-sdk/clients/SecretsManager');
 
 @noView
 export class SecretsHandler {
