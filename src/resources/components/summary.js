@@ -1,15 +1,13 @@
 import {inject} from 'aurelia-framework';
 import {PostApi} from '../api/postApi';
-import {SummaryApi} from '../api/summaryApi';
 import {BookSummary} from '../models/bookSummary';
 
 let showdown = require('showdown');
 
-@inject(PostApi, SummaryApi, BookSummary)
+@inject(PostApi, BookSummary)
 export class Summary {
-    constructor(PostApi, SummaryApi, BookSummary) {
+    constructor(PostApi, BookSummary) {
         this.postApi = PostApi;
-        this.summaryApi = SummaryApi;
         this.bookSummary = BookSummary;
         
         this.isPostLoaded = false;
@@ -53,7 +51,7 @@ export class Summary {
                 });
             }
             
-            this.contents = await this.summaryApi.getBookSummaryContents(`${this.slug}.md`);
+            this.contents = await this.postApi.getBookSummaryContents(this.slug);
         }
 
         this.isPostLoaded = true;
