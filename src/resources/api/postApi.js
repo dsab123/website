@@ -44,6 +44,29 @@ export class PostApi extends Api {
         return contents;
     }
 
+    async getBookSummaryContents(slug) {
+        let data = '';
+        await this.httpClient.fetch(`${this.baseUrl}booksummary?path=/summaries/${slug}.md`)
+            .then(response => response.json()
+            .then(formattedResponse => {
+                data = formattedResponse.data;
+        }));
+
+        return data;
+    }
+
+    async getBlogPostContents(slug) {
+        let data = '';
+        // TODO booksummary? this is not a booksummary, this is a blogpost! How to handle, how to handle...
+        await this.httpClient.fetch(`${this.baseUrl}booksummary?path=/blogposts/${slug}.md`)
+            .then(response => response.json()
+            .then(formattedResponse => {
+                data = formattedResponse.data;
+        }));
+
+        return data;
+    }
+
     async retrieveBlogPost(blogPostId, qs = '') {
 
         let contents = await this.fetchBlogPost(blogPostId, qs);
