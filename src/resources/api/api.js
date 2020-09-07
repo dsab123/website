@@ -5,6 +5,6 @@ import {HttpClient} from 'aurelia-fetch-client';
 export class Api {
     constructor() {
         this.httpClient = new HttpClient();
-        this.baseUrl = process.env.POSTAPI_BASEURL; 
+        this.baseUrl = 'https://7dfaiqkhk5.execute-api.us-east-1.amazonaws.com/stage/'; 
     }
 }
