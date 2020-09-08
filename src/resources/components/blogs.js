@@ -13,8 +13,6 @@ export class Home {
         this.isLoading = true;
         this.initialLoadingText = "Loading";
         this.loadingText = '';
-
-        this.loadingTextTagline = "(why is this loading taking so long? click \'About\'!)"
     }
 
     sleep(milliseconds) {
