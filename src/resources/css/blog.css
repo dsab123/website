@@ -9,9 +9,8 @@
 	font-family: var(--big-font-family);
 }
 
-img[alt=post_image] {
-	margin-left: auto;
-	margin-right: auto;
+.post-image {
+	margin: auto;
 	width: 45em;
 	height: auto;
 }
@@ -125,7 +124,7 @@ img[alt=post_image] {
 		padding-bottom: 8px;
 	}
 
-	img[alt=post_image] {
+	.post-image {
 		margin-left: auto;
 		margin-right: auto;
 		width: 28em;
