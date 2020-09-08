@@ -9,6 +9,13 @@
 	font-family: var(--big-font-family);
 }
 
+img[alt=post_image] {
+	margin-left: auto;
+	margin-right: auto;
+	width: 45em;
+	height: auto;
+}
+
 .preload-post {
 	overflow-y: hidden;
 	max-height: 0px; /* approximate max height */
@@ -101,6 +108,11 @@
 }
 
 @media screen and (max-width: 768px) {
+	.page-title {
+		font-family: var(--big-font-family);
+		text-align: center;
+	}
+
 	.blog-layout {
 		font-size: 12px;
 	}
@@ -112,4 +124,11 @@
 	.post-tags {
 		padding-bottom: 8px;
 	}
+
+	img[alt=post_image] {
+		margin-left: auto;
+		margin-right: auto;
+		width: 28em;
+		height: auto;
+	}	
 }
