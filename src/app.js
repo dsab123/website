@@ -30,7 +30,7 @@ export class App {
         title: 'Blog'
       },
       {
-        route: 'blog/:postId?/:slug?',
+        route: 'blog/:blogpostId?/:slug?',
         name: 'blog',
         nav: false,
         moduleId: PLATFORM.moduleName('resources/components/blog'),
