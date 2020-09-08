@@ -68,7 +68,7 @@
 }
 
 .post-contents {
-	white-space: pre-line;    
+	white-space: normal;
 }
 
 /* post contents html -> markdown formatting */

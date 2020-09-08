@@ -23,12 +23,22 @@ export class Blog {
         this.selectedRelatedPostTag = null;
     }
 
-    activate(urlParams, routeMap, navigationInstruction) {
+    async activate(urlParams, routeMap, navigationInstruction) {
         if (urlParams && urlParams.blogpostId) {
             this.blogpostId = urlParams.blogpostId;
             this.getPostContents(urlParams.blogpostId);
         } else {
             this.getPostContents();
+        }
+
+        if (urlParams && urlParams.slug) {
+            await this.postApi.getBlogPostContents(urlParams.slug).then(data => {
+                let converter = new showdown.Converter({
+                    simpleLineBreaks: 'true'
+                });
+    
+                this.postContents = converter.makeHtml(data);
+            });
         }
     }
 
@@ -45,13 +55,6 @@ export class Blog {
         }
     
         this.postApi.retrieveBlogPost(postId).then((data) => {
-            let converter = new showdown.Converter({
-                simpleLineBreaks: 'true' // TODO move this to config
-            });
-
-            this.postContents = converter.makeHtml(data.content);
-            this.setPostContentsContainer();
-
             this.postTitle = data.title;
             this.postTags = data.tags;
 
