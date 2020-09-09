@@ -20,6 +20,7 @@ export class Blog {
         this.relatedPosts = [];
         this.filteredRelatedPosts = [];
         this.showRelatedPosts = false;
+        this.noRelatedPosts = false;
         this.selectedRelatedPostTag = null;
     }
 
@@ -90,6 +91,12 @@ export class Blog {
         } else {
             // only collapse the section if its the same tag as before, and we were showing relatedPosts
             this.showRelatedPosts = false;
+        }
+
+        if (this.relatedPosts.length == 0) {
+            this.noRelatedPosts = true;
+        } else {
+            this.noRelatedPosts = false;
         }
 
         this.selectedRelatedPostTag = relatedPostTag;

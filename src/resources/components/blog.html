@@ -25,7 +25,7 @@
 
         <!-- TODO when one of these are clicked, set relatedPosts to [] and scroll to top of page -->
         <div class="${showRelatedPosts ? 'preload-related-posts slide-related-posts-in related-posts' : 'preload-related-posts slide-related-posts-out related-posts'}">
-            <h4><span>other posts tagged: ${selectedRelatedPostTag}</span></h4>
+            <h4 if.bind="!noRelatedPosts"><span>other posts tagged: ${selectedRelatedPostTag}</span></h4>
             <ul>
                 <li repeat.for="post of relatedPosts">
                     <a href="/#/blog/${post.id}" class="post-links">
@@ -37,8 +37,8 @@
                     </ul>
                     </a>
                 </li>
-                <p>Looks like there aren't any other posts with this tag 😔 <a href="mailto:dsabbaghumd@gmail.com" target="_blank">Want me to write one?</a></p>
             </ul>
+            <p if.bind="noRelatedPosts">Looks like there aren't any other posts with this tag 😔 <a href="mailto:dsabbaghumd@gmail.com" target="_blank">Want me to write one?</a></p>
         </div>
 
         <br>
