@@ -60,6 +60,29 @@ p {
     margin-bottom: 5px;
 }
 
+.feedback-boxes {
+    display: flex;
+    flex-direction: row;
+    flex-grow: inherit;
+    margin-bottom: 40px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.donate-box {
+    border: white;
+    border-style: solid;
+    height: 320px;
+    width: 320px;
+}
+
+.email-subscribe-box {
+    border: white;
+    border-style: solid;
+    height: 320px;
+    width: 320px;
+}
+
 @media screen and (max-width: 768px) {
     .headshot {
         margin-top: 15px;
@@ -91,6 +114,8 @@ p {
 
     .horizontal-separator {
         width: 92vw;
+        margin-bottom: 40px;
+        margin-top: 30px;
     }
 
     .contact-links {
