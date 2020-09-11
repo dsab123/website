@@ -1,14 +1,16 @@
+import {EventAggregator} from 'aurelia-event-aggregator';
 import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
-import {PostApi} from '../api/postApi';
 import {BookSummary} from '../models/bookSummary';
+import {PostApi} from '../api/postApi';
 
-@inject(PostApi, BookSummary, Router)
+@inject(PostApi, BookSummary, Router, EventAggregator)
 export class Summaries {
-    constructor(PostApi, BookSummary, Router) {
+    constructor(PostApi, BookSummary, Router, EventAggregator) {
         this.postApi = PostApi;
         this.bookSummary = BookSummary;
         this.router = Router;
+        this.eventAggregator = EventAggregator;
 
         this.intro = "I like to read pretty widely, from tech to theology to bestsellers. Below you'll find a review for each of the books I've read, along with a link to buy. Drop me a line if you purchase any of these!";
         this.disclaimer = "I'm a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.";
@@ -27,6 +29,8 @@ export class Summaries {
       await this.postApi.getBookSummaryLookup().then((data) => {
         this.summaries = data;
       });
+
+      this.eventAggregator.publish('contentLoaded');
     }
 
     populateBookSummary(summaryId) {

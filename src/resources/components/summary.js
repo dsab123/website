@@ -1,16 +1,17 @@
 import {inject} from 'aurelia-framework';
+import {EventAggregator} from 'aurelia-event-aggregator';
+
 import {PostApi} from '../api/postApi';
 import {BookSummary} from '../models/bookSummary';
 
 let showdown = require('showdown');
 
-@inject(PostApi, BookSummary)
+@inject(PostApi, BookSummary, EventAggregator)
 export class Summary {
-    constructor(PostApi, BookSummary) {
+    constructor(PostApi, BookSummary, EventAggregator) {
         this.postApi = PostApi;
         this.bookSummary = BookSummary;
-        
-        this.isPostLoaded = false;
+        this.eventAggregator = EventAggregator;
     }
 
     attached() {
@@ -52,8 +53,8 @@ export class Summary {
             }
             
             this.contents = await this.postApi.getBookSummaryContents(this.slug);
-        }
 
-        this.isPostLoaded = true;
+            this.eventAggregator.publish('contentLoaded');
+        }
     }
 }

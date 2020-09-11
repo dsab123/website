@@ -1,8 +1,12 @@
+import {EventAggregator} from 'aurelia-event-aggregator';
+import {inject} from 'aurelia-framework';
 import {Talk} from '../models/talk';
 
+@inject(EventAggregator)
 export class Talks {
-    constructor() {
+    constructor(EventAggregator) {
         this.talksList = [];
+        this.eventAggregator = EventAggregator;
     }
 
     activate(urlParams, routeMap, navigationInstruction) {
@@ -10,6 +14,10 @@ export class Talks {
         this.talksList = this.getTalksList();
         this.blurb = "I'm finding that I'm not all that terrible at learning and teaching stuff. Over the last year or so I've gotten interested in giving tech talks on topics that interest me.";
         this.paragraph = "I've given talks on a wide variety of topics relating to Unit Testing - on the frontend using Karma, on the backend using NUnit/NSubstitute, and on refactoring code to make unit testing easier.";
+    }
+
+    attached() {
+        this.eventAggregator.publish('contentLoaded');
     }
 
     // will want to retrieve these more intelligently at some point in the future, obvi

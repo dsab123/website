@@ -1,11 +1,13 @@
+import {EventAggregator} from 'aurelia-event-aggregator';
 import {inject} from 'aurelia-framework';
 import {PostApi} from '../api/postApi';
 
-@inject(PostApi)
+@inject(PostApi, EventAggregator)
 export class Home {
     
-    constructor(PostApi) { 
+    constructor(PostApi, EventAggregator) { 
         this.postApi = PostApi;
+        this.eventAggregator = EventAggregator;
 
         this.message = "Blogs";
         this.postsList = [];
@@ -25,11 +27,12 @@ export class Home {
         });
     }
 
-    activate(urlParams, routeMap, navigationInstruction) {
+    async activate(urlParams, routeMap, navigationInstruction) {
         this.spinLoadingText();
 
         this.getBlogPostMetadata().then(() => {
             this.isLoading = false;
+            this.eventAggregator.publish('contentLoaded');
         });
     }
 

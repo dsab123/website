@@ -8,14 +8,14 @@
         <div id="empty-div-hook-for-scrolling"></div>
 
         <h2 class="page-title">${postTitle}</h2>
-        
+
         <div class="${postContents ? 'preload-post slide-post-in post-contents' : 'preload-post post-contents'}"> 
                 <p class="${dimPostContents ? 'dim-overlay post-contents' : 'post-contents'}">
                     <markdown class="post-contents-container" ref="postContentsContainer">
                     </markdown>
                 </p>
         </div>
-
+        
         <br>
         <div class="post-tags" show.bind="postTags">related:
             <a class="post-tag" repeat.for="tag of postTags" click.delegate='showRelatedPostsByTag(tag, !showRelatedPosts)'>${tag}</a>

@@ -1,12 +1,15 @@
+import {EventAggregator} from 'aurelia-event-aggregator';
 import {inject} from 'aurelia-framework';
 import {PostApi} from '../api/postApi';
+
 let showdown = require('showdown');
 
-@inject(PostApi)
+@inject(PostApi, EventAggregator)
 export class Blog {
 
-    constructor(PostApi) {
+    constructor(PostApi, EventAggregator) {
         this.postApi = PostApi;
+        this.eventAggregator = EventAggregator;
 
         // properties for main post
         this.postTitle = null;
@@ -65,10 +68,12 @@ export class Blog {
         });
     }
 
-    setPostContentsContainer() {
+    async setPostContentsContainer() {
         if (this.postContentsContainer) {
             this.postContentsContainer.innerHTML = this.postContents;
         }
+
+        this.eventAggregator.publish('contentLoaded');
     }
 
     getDefaultPostId() {
