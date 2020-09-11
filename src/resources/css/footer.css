@@ -1,11 +1,13 @@
 :root {
     --separator-color: #e9ad68;
-	--small-font-family: 'Montserrat', sans-serif;
+    --big-font-family: 'Merriweather', serif;
+    --small-font-family: 'Montserrat', sans-serif;
 }
 
-.horizontal-separator {
+.top-horizontal-separator {
     height: 1px;
     background: var(--separator-color);
+    margin-top: 20px;
 }
 
 .personal-info {
@@ -63,24 +65,119 @@ p {
 .feedback-boxes {
     display: flex;
     flex-direction: row;
-    flex-grow: inherit;
-    margin-bottom: 40px;
-    align-items: center;
-    justify-content: space-around;
+    margin-bottom: 15px;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .donate-box {
     border: white;
     border-style: solid;
-    height: 320px;
-    width: 320px;
+    height: 260px;
+    width: 330px;
+    border: none;
+    background-color: rgb(55, 55, 55)
+}
+
+.coffee-cups {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    width: 240px;
+}
+
+.donate-submit-button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;   
+}
+
+.small-coffee-cup {
+    width: 50px;
+    height: 60px;
+}
+
+.med-coffee-cup {
+    width: 60px;
+    height: 80px;
+}
+
+.large-coffee-cup {
+    width: 60px;
+    height: 110px;
+}
+
+.footer-money-plea {
+    margin-top: 25px;
+    margin-left: 40px;
+    margin-right: 40px;
+    text-align: center;
+    font-family: var(--small-font-family);
 }
 
 .email-subscribe-box {
     border: white;
     border-style: solid;
-    height: 320px;
-    width: 320px;
+    height: 260px;
+    width: 330px;
+    border: none;
+    background-color: rgb(77, 77, 77);
+    text-align: center;
+}
+
+.email-subscribe-header {
+    font-size: 28px;
+    margin-top: 20px;
+    font-family: var(--big-font-family);
+}
+
+.email-subscribe-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 240px;
+    margin: auto;
+    font-family: var(--small-font-family);
+}
+
+.email-input {
+    font-size: 18px;
+    margin-top: 16px;
+    border-radius: 5px;
+    border-style: unset;
+    text-align: center;
+}
+
+.email-subscribe-button {
+    font-size: 18px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border-style: hidden;
+    cursor: pointer;
+}
+
+.email-subscribe-text {
+    font-size: 17px;
+    margin-top: 15px;
+}
+
+.bottom-horizontal-separator {
+    height: 1px;
+    background: var(--separator-color);
+    margin-top: 30px;
+}
+
+.email-made-with-heart {
+    font-size: 10px;
+    text-align: center;
+    margin-bottom: 40px;   
 }
 
 @media screen and (max-width: 768px) {
@@ -112,10 +209,8 @@ p {
         margin-right: 3px;
     }
 
-    .horizontal-separator {
-        width: 92vw;
-        margin-bottom: 40px;
-        margin-top: 30px;
+    .top-horizontal-separator, .bottom-horizontal-separator {
+        margin-top: 0px;
     }
 
     .contact-links {
@@ -125,5 +220,19 @@ p {
     .contact-list-item {
         float: left;
         padding-right: 5px;
+    }
+
+    .feedback-boxes {
+        display: flex;
+        flex-direction: column;
+        /* margin-bottom: -25px; */
+        justify-content: space-evenly;
+        height: 600px;
+        align-items: center;
+        margin: 0px;
+    }
+
+    .email-made-with-heart {
+        margin-bottom: 0px;
     }
 }
