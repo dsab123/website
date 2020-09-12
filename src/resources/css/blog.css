@@ -47,10 +47,17 @@
 	max-height: 0px;
 }
 
-.post-tags {
+.post-tag-container {
 	padding-top: 8px;
-	font-family: var(--big-font-family); 
-	/* the above is because of the 'related'; I don't want a global p class */
+    font-family: var(--big-font-family);
+    display: flex;
+	flex-direction: row;
+	align-items: baseline;
+}
+
+.post-tags {
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .post-tag {
@@ -118,9 +125,10 @@
 
 	.post-tag {
 		font-size: 12px;
+		margin-top: 10px;
 	}
 
-	.post-tags {
+	.post-tag-container {
 		padding-bottom: 8px;
 	}
 
