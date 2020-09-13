@@ -1,9 +1,9 @@
 :root {
-    --big-font-color: #542189;
+    --big-font-color: #D9A5FF;
     --big-font-family: 'Merriweather', serif;
     --small-font-family: 'Montserrat', sans-serif;
-    --logo-background-color: #f57867;
-    --logo-bottom-border-color: orange;
+    --logo-background-color: #9D2B1C;
+    --logo-bottom-border-color: #DE9E2C;
 }
 
 .title {
@@ -29,7 +29,7 @@
     text-decoration: none;
     font-family: var(--big-font-family);
     font-size: 20px;
-    --big-font-color: #542189;
+    --big-font-color: #D9A5FF;
 }
 
 .nav-items {
@@ -44,7 +44,7 @@
 }
 
 .header {
-    background: linear-gradient(#ffffff, #d6d8d8);
+    background-image: linear-gradient(#212425, #3F4244);
     margin-bottom: 50px;
 }
 
@@ -148,7 +148,7 @@
         text-decoration: none;
         font-family: var(--big-font-family);
         font-size: 20px;
-        --big-font-color: #542189;
+        --big-font-color: #D9A5FF;
         border-bottom: 2px solid white;
     }
 

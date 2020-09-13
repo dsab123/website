@@ -78,7 +78,7 @@ p {
     height: 260px;
     width: 330px;
     border: none;
-    background-color: rgb(55, 55, 55)
+    background-color: #383d3f;
 }
 
 .coffee-cups {
@@ -128,7 +128,7 @@ p {
     height: 260px;
     width: 330px;
     border: none;
-    background-color: rgb(77, 77, 77);
+    background-color: #505557;
     text-align: center;
 }
 
@@ -153,6 +153,7 @@ p {
     border-radius: 5px;
     border-style: unset;
     text-align: center;
+    background-color: #212324;
 }
 
 .email-subscribe-button {
@@ -161,6 +162,7 @@ p {
     border-radius: 5px;
     border-style: hidden;
     cursor: pointer;
+    background-color: #212324;
 }
 
 .email-subscribe-text {
