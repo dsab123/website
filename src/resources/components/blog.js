@@ -6,7 +6,6 @@ let showdown = require('showdown');
 
 @inject(PostApi, EventAggregator)
 export class Blog {
-
     constructor(PostApi, EventAggregator) {
         this.postApi = PostApi;
         this.eventAggregator = EventAggregator;
@@ -25,17 +24,21 @@ export class Blog {
         this.showRelatedPosts = false;
         this.noRelatedPosts = false;
         this.selectedRelatedPostTag = null;
+
+        // this for 'permutations' of the vm, like with the about page; I don't
+        // want related posts showing up on the about page
+        this.alwaysHideRelatedPosts = false;
     }
 
     async activate(urlParams, routeMap, navigationInstruction) {
-        if (urlParams && urlParams.blogpostId) {
+        if (urlParams?.blogpostId) {
             this.blogpostId = urlParams.blogpostId;
             this.getPostContents(urlParams.blogpostId);
         } else {
             this.getPostContents();
         }
 
-        if (urlParams && urlParams.slug) {
+        if (urlParams?.slug) {
             await this.postApi.getBlogPostContents(urlParams.slug).then(data => {
                 let converter = new showdown.Converter({
                     simpleLineBreaks: 'true'
@@ -43,6 +46,13 @@ export class Blog {
     
                 this.postContents = converter.makeHtml(data);
             });
+        }
+
+        if (urlParams?.alwaysHideRelatedPosts) {
+            console.log('alwaysHideRelatedPosts is true???');
+            this.alwaysHideRelatedPosts = true;
+        } else {
+            console.log('alwaysHideRelatedPosts is not true.. :(');
         }
     }
 
@@ -73,7 +83,12 @@ export class Blog {
             this.postContentsContainer.innerHTML = this.postContents;
         }
 
-        this.eventAggregator.publish('contentLoaded');
+        // can't figure out why the eventAggregator is in a weird state when
+        // called from about with <compose> ... just going to hide the 
+        // error like a n00b and forget about it
+        if (!this.alwaysHideRelatedPosts) {
+            this.eventAggregator.publish('contentLoaded');
+        }
     }
 
     getDefaultPostId() {
