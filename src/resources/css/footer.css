@@ -154,6 +154,7 @@ p {
     border-style: unset;
     text-align: center;
     background-color: #212324;
+    color: white;
 }
 
 .email-subscribe-button {
