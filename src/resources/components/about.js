@@ -2,6 +2,7 @@ import {EventAggregator} from 'aurelia-event-aggregator';
 import {inject} from 'aurelia-framework';
 import {PostApi} from '../api/postApi';
 import {Blog} from './blog';
+PLATFORM.moduleName('./blog');
 
 // lolwut why am I extending Blog here? Composition over inheritance, Daniel :facepalm:
 @inject(PostApi, EventAggregator)

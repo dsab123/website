@@ -24,10 +24,6 @@ export class Blog {
         this.showRelatedPosts = false;
         this.noRelatedPosts = false;
         this.selectedRelatedPostTag = null;
-
-        // this for 'permutations' of the vm, like with the about page; I don't
-        // want related posts showing up on the about page
-        this.alwaysHideRelatedPosts = false;
     }
 
     async activate(urlParams, routeMap, navigationInstruction) {
@@ -47,10 +43,6 @@ export class Blog {
                 this.postContents = converter.makeHtml(data);
             });
         }
-
-        if (urlParams?.alwaysHideRelatedPosts) {
-            this.alwaysHideRelatedPosts = true;
-        }
     }
 
     attached() {
@@ -62,10 +54,13 @@ export class Blog {
         this.dimPostContents = true;
 
         if (!postId) {
+            return;
             postId = this.getDefaultPostId();
+            // TODO; why is this called twice? because activate()
+            // is being called twice
         }
     
-        this.postApi.retrieveBlogPost(postId).then((data) => {
+        this.postApi.getBlogPostInfo(postId).then((data) => {
             this.postTitle = data.title;
             this.postTags = data.tags;
 
