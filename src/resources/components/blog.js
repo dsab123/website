@@ -49,10 +49,7 @@ export class Blog {
         }
 
         if (urlParams?.alwaysHideRelatedPosts) {
-            console.log('alwaysHideRelatedPosts is true???');
             this.alwaysHideRelatedPosts = true;
-        } else {
-            console.log('alwaysHideRelatedPosts is not true.. :(');
         }
     }
 
