@@ -20,6 +20,30 @@ export class PostApi extends Api {
         return contents;
     }
 
+    async getBlogPostInfo(blogpostId) {
+        let contents = [];
+        // NOTE: not using fetch() for these because the fetch client
+        // converts the response into a stupid ReadableStream, which I abhor
+        await this.httpClient.get(`${this.baseUrl}blogpostinfo/${blogpostId}`)
+        .then(response =>  {
+            contents = response.json();
+        });
+
+        return contents;
+    }
+
+    async getBlogPostContents(slug) {
+        let data = '';
+        // TODO booksummary? this is not a booksummary, this is a blogpost! How to handle, how to handle...
+        await this.httpClient.fetch(`${this.baseUrl}booksummary?path=/blogposts/${slug}.md`)
+            .then(response => response.json()
+            .then(formattedResponse => {
+                data = formattedResponse.data;
+        }));
+
+        return data;
+    }
+
     async getBookSummaryLookup() {
         let contents = [];
         // NOTE: not using fetch() for these because the fetch client
@@ -55,51 +79,6 @@ export class PostApi extends Api {
         return data;
     }
 
-    async getBlogPostContents(slug) {
-        let data = '';
-        // TODO booksummary? this is not a booksummary, this is a blogpost! How to handle, how to handle...
-        await this.httpClient.fetch(`${this.baseUrl}booksummary?path=/blogposts/${slug}.md`)
-            .then(response => response.json()
-            .then(formattedResponse => {
-                data = formattedResponse.data;
-        }));
-
-        return data;
-    }
-
-    async retrieveBlogPost(blogPostId, qs = '') {
-
-        let contents = await this.fetchBlogPost(blogPostId, qs);
-
-        if (contents != null) {
-            return new BlogPost({
-                id: contents.id,
-                content: contents.content,
-                title: contents.title,
-                tags: contents.tags,
-                slug: contents.slug,
-                relatedPosts: contents.relatedPosts
-            });
-        } else {
-            return BlogPost.createErrorBlogPost();
-        }
-    }
-
-    async fetchBlogPost(blogPostId, qs) {
-        let contents = '';
-
-        if (isNaN(blogPostId)) {
-            return null;
-        }
-
-        let url = `${this.baseUrl}blogpost/${blogPostId}${qs}`;
-        await this.httpClient.fetch(url)
-            .then(response => {
-                contents = response.json();
-            });                    
-
-        return contents;
-    }
 
     async getRelatedPostsByTag(tagName) {
         let url = `${this.baseUrl}tags/${tagName}`;
