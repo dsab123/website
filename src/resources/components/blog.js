@@ -92,7 +92,7 @@ export class Blog {
             // if selected related tag is null, user hasn't clicked one yet; if this, or if
             // they're clicking on a new tag, load new tags
             this.relatedPosts = await this.postApi.getRelatedPostsByTag(relatedPostTag);
-            this.relatedPosts = this.relatedPosts.filter(post => post.id != this.blogpostId);
+            this.relatedPosts = this.relatedPosts.filter(post => post.blogpost_id != this.blogpostId);
             this.showRelatedPosts = true;
         } else if (shouldShowRelatedPosts == true && this.selectedRelatedPostTag == relatedPostTag) {    
             // if we want to show related posts, and the new tag is the same as the old, we will
