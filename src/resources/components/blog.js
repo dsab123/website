@@ -17,6 +17,7 @@ export class Blog {
         this.dimPostContents = false;
         this.isPostLoaded = false;
         this.blogpostId = 1;
+        this.slug = '';
 
         // properties for related posts by tag
         this.relatedPosts = [];
@@ -27,42 +28,45 @@ export class Blog {
     }
 
     async activate(urlParams, routeMap, navigationInstruction) {
-        if (urlParams?.blogpostId) {
-            this.blogpostId = urlParams.blogpostId;
-            this.getPostContents(urlParams.blogpostId);
-        } else {
-            this.getPostContents();
-        }
+        this.blogpostId = urlParams.blogpostId;   
+        let data = '';
 
         if (urlParams?.slug) {
-            await this.postApi.getBlogPostContents(urlParams.slug).then(data => {
-                let converter = new showdown.Converter({
-                    simpleLineBreaks: 'true'
-                });
-    
-                this.postContents = converter.makeHtml(data);
-            });
+            // if we have slug we don't need to wait for postContents to give us slug from api
+            this.getBlogPostInfo(this.blogpostId);
+            data = await this.postApi.getBlogPostContents(urlParams.slug);
+        } else {
+            await this.getBlogPostInfo(this.blogpostId);
+            data = await this.postApi.getBlogPostContents(this.slug);
         }
+
+        let converter = new showdown.Converter({
+            simpleLineBreaks: 'true'
+        });
+
+        this.postContents = converter.makeHtml(data);
+        this.setPostContentsContainer();
+    
     }
 
     attached() {
         this.setPostContentsContainer();
     }
 
-    async getPostContents(postId) {
+    async getBlogPostInfo(postId) {
         // dim postContents to indicate new post incoming
         this.dimPostContents = true;
 
         if (!postId) {
-            return;
             postId = this.getDefaultPostId();
             // TODO; why is this called twice? because activate()
             // is being called twice
         }
     
-        this.postApi.getBlogPostInfo(postId).then((data) => {
+        await this.postApi.getBlogPostInfo(postId).then((data) => {
             this.postTitle = data.title;
             this.postTags = data.tags;
+            this.slug = data.slug;
 
             // undim post contents
             this.dimPostContents = false;

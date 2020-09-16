@@ -35,7 +35,7 @@
                 <h4 if.bind="!noRelatedPosts"><span>other posts tagged: ${selectedRelatedPostTag}</span></h4>
                 <ul>
                     <li repeat.for="post of relatedPosts">
-                        <a href="/#/blog/${post.id}" class="post-links">
+                        <a href="/#/blog/${post.id}/${post.slug}" class="post-links">
                         ${post.title}
                         <ul>
                             <li>
