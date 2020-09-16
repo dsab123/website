@@ -2,7 +2,7 @@ import {EventAggregator} from 'aurelia-event-aggregator';
 import {inject} from 'aurelia-framework';
 import {PostApi} from '../api/postApi';
 
-let showdown = require('showdown');
+const showdown = require('showdown');
 
 @inject(PostApi, EventAggregator)
 export class Blog {
@@ -45,8 +45,7 @@ export class Blog {
         });
 
         this.postContents = converter.makeHtml(data);
-        this.setPostContentsContainer();
-    
+        this.setPostContentsContainer();    
     }
 
     attached() {
