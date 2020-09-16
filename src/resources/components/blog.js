@@ -15,7 +15,7 @@ export class Blog {
         this.postContents = null;
         this.postTags = null;
         this.dimPostContents = false;
-        this.isPostLoaded = false;
+        this.hasFirstPostBeenLoadedd = false;
         this.blogpostId = 1;
         this.slug = '';
 
@@ -31,15 +31,11 @@ export class Blog {
         this.blogpostId = urlParams.blogpostId;   
         let data = '';
 
-        if (urlParams?.slug) {
-            // if we have slug we don't need to wait for postContents to give us slug from api
-            this.getBlogPostInfo(this.blogpostId);
-            data = await this.postApi.getBlogPostContents(urlParams.slug);
-        } else {
-            await this.getBlogPostInfo(this.blogpostId);
-            data = await this.postApi.getBlogPostContents(this.slug);
-        }
+        await this.getBlogPostInfo(this.blogpostId);
 
+        // if we have slug we don't need to wait for postContents to give us slug from api
+        data = await this.postApi.getBlogPostContents(this.slug || urlParams?.slug);
+        
         let converter = new showdown.Converter({
             simpleLineBreaks: 'true'
         });
@@ -58,19 +54,20 @@ export class Blog {
 
         if (!postId) {
             postId = this.getDefaultPostId();
-            // TODO; why is this called twice? because activate()
-            // is being called twice
         }
-    
-        await this.postApi.getBlogPostInfo(postId).then((data) => {
-            this.postTitle = data.title;
-            this.postTags = data.tags;
-            this.slug = data.slug;
 
-            // undim post contents
-            this.dimPostContents = false;
-            this.isPostLoaded = true;
-        });
+        // poor man's awaitable scroll
+        this.scrollToTopBeforeNewPostIsLoaded();
+        await this.sleep(800);
+
+        const data = await this.postApi.getBlogPostInfo(postId);
+
+        this.postTitle = data.title;
+        this.postTags = data.tags;
+        this.slug = data.slug;
+
+        this.dimPostContents = false;
+        this.hasFirstPostBeenLoadedd = true;
     }
 
     async setPostContentsContainer() {
@@ -117,10 +114,30 @@ export class Blog {
         this.selectedRelatedPostTag = relatedPostTag;
     }
 
-    resetScroll() {
-        // empty div hook is fastest, but not cleanest; hope I've named it clearly enough!
-        document.querySelector('#empty-div-hook-for-scrolling').scrollIntoView({ 
-            behavior: 'smooth' 
-          });
+    async scrollToTopAfterNewPostIsLoaded() {
+        //window.scrollTo(0, document.body.scrollHeight);
+
+        // poor man's awaitable scroll 
+        document.querySelector('.top-bar')?.scrollIntoView({ 
+            behavior: 'smooth' , block: 'start'
+        });
+        await this.sleep(900);
+
+        console.log('shouldnt see anything with relatedPosts rightnow');
+        this.dimPostContents = false;
+        this.hasFirstPostBeenLoadedd = true;
+        
+        this.selectedRelatedPostTag = null;
+    }
+
+    async scrollToTopBeforeNewPostIsLoaded() {
+        // poor man's awaitable scroll 
+        document.querySelector('.top-bar')?.scrollIntoView({ 
+            behavior: 'smooth' , block: 'start'
+        });
+    }
+
+    sleep = (milliseconds) => {
+        return new Promise(resolve => setTimeout(resolve, milliseconds))
     }
 }
