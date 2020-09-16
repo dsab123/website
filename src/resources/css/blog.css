@@ -85,30 +85,6 @@
 	white-space: normal;
 }
 
-/* post contents html -> markdown formatting */
-/*
-.post-contents-container h4 {
-    margin-block-start: .5em;
-    margin-block-end: -1.5em;
-}
-
-.post-contents-container h4 + p {
-	margin-block-start: 2em;
-}
-
-.post-contents-container p + ul {
-	margin-block-start: 1em; // NOTICE THE -1 THAT I TOOK OUT
-}
-
-.post-contents-container ul + p {
-	margin-block-start: -1em;
-}
-
-.post-contents-container hr {
-	margin-block-start: -1em;
-	margin-block-end: -1em;
-}
-*/
 
 .money-plea {
 	font-style: italic;
