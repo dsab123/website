@@ -114,24 +114,7 @@ export class Blog {
         this.selectedRelatedPostTag = relatedPostTag;
     }
 
-    async scrollToTopAfterNewPostIsLoaded() {
-        //window.scrollTo(0, document.body.scrollHeight);
-
-        // poor man's awaitable scroll 
-        document.querySelector('.top-bar')?.scrollIntoView({ 
-            behavior: 'smooth' , block: 'start'
-        });
-        await this.sleep(900);
-
-        console.log('shouldnt see anything with relatedPosts rightnow');
-        this.dimPostContents = false;
-        this.hasFirstPostBeenLoadedd = true;
-        
-        this.selectedRelatedPostTag = null;
-    }
-
     async scrollToTopBeforeNewPostIsLoaded() {
-        // poor man's awaitable scroll 
         document.querySelector('.top-bar')?.scrollIntoView({ 
             behavior: 'smooth' , block: 'start'
         });
