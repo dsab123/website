@@ -114,13 +114,10 @@
     /* hamburger menu */
     .slide-hamburger-menu-in {
         display: flex;
-
+        cursor: pointer;
         max-height: 500px;
     }
 
-    .slide-hamburger-menu-out {
-        max-height: 0px;
-    }
     
     .bar1, .bar2, .bar3 {
         width: 35px;

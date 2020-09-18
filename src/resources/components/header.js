@@ -18,9 +18,6 @@ export class Header {
         this.hamburgerOpen = false;
     }
 
-    activate(urlParams, routeMap, navigationInstruction) {
-    }
-
     flipConverterText() {
         this.convertNavItems = !this.convertNavItems;
         this.convertMenuItemsText = this.convertMenuItemsTexts[++this.convertMenuItemsCounter % 2];
@@ -28,5 +25,10 @@ export class Header {
 
     toggleHamburger() {
         this.hamburgerOpen = !this.hamburgerOpen;
+    }
+
+    toggleHamburgerAndNavigate(href) {
+        this.toggleHamburger();
+        this.router.navigate(href);
     }
 }

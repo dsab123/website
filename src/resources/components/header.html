@@ -18,14 +18,16 @@
             </div>
         </div>
 
-        <div class="${hamburgerOpen ? 'hamburger-menu slide-hamburger-menu-in': 'hamburger-menu slide-hamburger-menu-out'}">
+        <!-- mobile (hamburger) nav -->
+        <div slide-open.bind="hamburgerOpen" class="hamburger-menu slide-hamburger-menu-in">
             <a repeat.for="nav of router.navigation" 
                 class="${nav.isActive ? 'hamburger-nav-item active' : 'hamburger-nav-item'}" 
-                href.bind="nav.href">
+                click.delegate="toggleHamburgerAndNavigate(nav.href)">
                 ${nav.title | menuFilters : convertNavItems}
             </a>
         </div>
 
+        <!-- desktop (regular) nav -->
         <div class="header-top">
             <div class="nav-items">
                 <a class="nav-item" repeat.for="nav of router.navigation" 
