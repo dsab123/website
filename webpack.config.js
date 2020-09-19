@@ -8,6 +8,7 @@ const { AureliaPlugin, ModuleDependenciesPlugin } = require('aurelia-webpack-plu
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 // config helpers:
 const ensureArray = (config) => config && (Array.isArray(config) ? config : [config]) || [];
@@ -271,6 +272,9 @@ module.exports = ({ production } = {}, {extractCss, analyze, tests, hmr, port, h
       patterns: [
         {from: path.resolve(__dirname, 'manifest.json'), to: outDir },
       ]
+    }),
+    new CompressionPlugin({
+      algorithm: 'gzip',
     })
   ]
 });
