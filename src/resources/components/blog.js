@@ -30,7 +30,7 @@ export class Blog {
     }
 
     async activate(urlParams, routeMap, navigationInstruction) {
-        this.blogpostId = urlParams.blogpostId;   
+        this.blogpostId = urlParams.blogpostId ?? this.blogpostId ?? 1;
         let data = '';
 
         this.dimPostContents = true;
