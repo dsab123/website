@@ -19,7 +19,7 @@
         <div show.bind="!alwaysHideRelatedPosts">
             <div class="post-tag-container" show.bind="postTags">
                 <div>
-                    <p>related:</p>
+                    <p class="related-posts-text">related:</p>
                 </div>
                 <div class="post-tags">
                     <a class="post-tag" repeat.for="tag of postTags" click.delegate='showRelatedPostsByTag(tag, !showRelatedPosts)'>${tag}</a>
@@ -30,7 +30,7 @@
 
             <!-- TODO when one of these are clicked, set relatedPosts to [] and scroll to top of page -->
             <div class="${showRelatedPosts ? 'preload-related-posts slide-related-posts-in related-posts' : 'preload-related-posts slide-related-posts-out related-posts'}">
-                <h4 if.bind="!noRelatedPosts"><span>other posts tagged: ${selectedRelatedPostTag}</span></h4>
+                <p class="related-posts-text" if.bind="!noRelatedPosts"><span>other posts tagged: ${selectedRelatedPostTag}</span></p>
                 <ul>
                     <li repeat.for="post of relatedPosts">
                         <a href="/#/blog/${post.blogpost_id}/${post.slug}" class="post-links">

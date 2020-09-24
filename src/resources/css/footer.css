@@ -1,7 +1,7 @@
 :root {
     --separator-color: #e9ad68;
-    --big-font-family: 'Merriweather', serif;
-    --small-font-family: 'Montserrat', sans-serif;
+    --big-font-family: 'Libre Caslon Text', serif;
+    --small-font-family: 'Crimson Text', serif;;
 }
 
 .top-horizontal-separator {
@@ -133,6 +133,7 @@ p {
     margin-right: 40px;
     text-align: center;
     font-family: var(--small-font-family);
+    font-size: 18px;
 }
 
 .email-subscribe-box {
@@ -161,6 +162,7 @@ p {
 }
 
 .email-input {
+    font-family: var(--small-font-family);
     font-size: 18px;
     margin-top: 16px;
     border-radius: 5px;
@@ -171,6 +173,7 @@ p {
 }
 
 .email-subscribe-button {
+    font-family: var(--small-font-family);
     font-size: 18px;
     margin-top: 5px;
     border-radius: 5px;
@@ -181,7 +184,7 @@ p {
 }
 
 .email-subscribe-text {
-    font-size: 17px;
+    font-size: 19px;
     margin-top: 15px;
 }
 
@@ -192,7 +195,7 @@ p {
 }
 
 .email-made-with-heart {
-    font-size: 10px;
+    font-size: 12px;
     text-align: center;
     margin-bottom: 40px;   
 }
@@ -212,10 +215,6 @@ p {
         padding-left: 0px;
         margin-right: 0px;
         width: 100%;
-    }
-
-    .footer-text {
-        font-size: 12px;
     }
 
     .footer-layout {

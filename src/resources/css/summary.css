@@ -1,8 +1,8 @@
 :root {
 	--post-tag-color: #889194;
 	--big-font-color: #D9A5FF;
-	--big-font-family: 'Merriweather', serif;
-	--small-font-family: 'Montserrat', sans-serif;
+	--big-font-family: 'Libre Caslon Text', serif;
+	--small-font-family: 'Crimson Text', serif;;
 }
 
 .dim-overlay {
@@ -11,12 +11,12 @@
 
 .summary-book-title, .review {
 	font-family: var(--big-font-family);
-	font-size: 24px;
+	font-size: 30px;
 }
 
 .author {
 	font-family: var(--small-font-family);
-	font-size: 20px;
+	font-size: 26px;
 }
 
 .metrics {
@@ -28,7 +28,7 @@
 	padding-top: 7px;
     padding-right: 10px;
     font-family: var(--big-font-family);
-    font-size: 18px;
+    font-size: 24px;
 }
 
 .payoff-title {
@@ -38,7 +38,7 @@
 }
 
 .metrics-measures {
-	font-size: 24px;
+	font-size: 28px;
 }
 
 .inner {
@@ -67,11 +67,13 @@
 .teaser {
 	font-style: italic;
     font-family: var(--small-font-family);
+	font-size: 20px;
 }
 
 /* post contents html -> markdown formatting */
 .summary-contents {
 	font-family: var(--small-font-family);
+	font-size: 20px;
 }
 
 .summaryContents h4 {
@@ -97,7 +99,7 @@
 }
 
 .money-plea {
-    font-size: 14px;
+    font-size: 22px;
     font-style: italic;
     font-family: var(--small-font-family);
     text-decoration: none;
@@ -111,13 +113,13 @@
 
 	.summary-book-title {
 		font-family: var(--big-font-family);
-		font-size: 24px;
+		font-size: 30px;
 		margin-left: 20px;
 	}
 
 	.author {
 		font-family: var(--small-font-family);
-    	font-size: 20px;
+    	font-size: 26px;
     	margin-left: 20px;
 	}
 
@@ -157,7 +159,7 @@
 		font-style: italic;
 		font-family: var(--small-font-family);
 		margin-bottom: 25px;
-		width: 20em;
+		width: 18em;
 		margin-left: auto;
 		margin-right: auto;
 	}

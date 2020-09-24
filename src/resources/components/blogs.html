@@ -2,14 +2,13 @@
     <require from="../css/blogs.css"></require>
     <require from="../value-converters/blog-post-blurb-prettifier"></require>
 
-    <h2 class="page-title">Blog</h2>
+    <h2 class="page-title">Recent Posts</h2>
 
     <div show.bind="isLoading">
         <h3 class="loading-text">${loadingText}</h3>
     </div>
 
     <div show.bind="!isLoading">
-        <h4 class="recent-posts-subtitle">Recent Posts</h4>
         <ul>
             <li class="post-title" repeat.for="post of postsList">
                 <a href="/#/blog/${post.blogpost_id}/${post.slug}" class="post-links">
@@ -22,5 +21,12 @@
                 </a>
             </li>
         </ul>
+        <!--
+        <div repeat.for="post of postsList">
+            <div class="card">
+
+            </div>
+        </div>
+        -->
     </div>
 </template>

@@ -1,8 +1,8 @@
 :root {
 	--post-tag-color: #889194;
 	--big-font-color: #D9A5FF;
-	--big-font-family: 'Merriweather', serif;
-	--small-font-family: 'Montserrat', sans-serif;
+	--big-font-family: 'Libre Caslon Text', serif;
+	--small-font-family: 'Crimson Text', serif;;
 }
 
 .post-links {
@@ -12,6 +12,7 @@
 .page-title, 
 .loading-text {
     font-family: var(--big-font-family);
+    font-size: 24px;
 }
 
 .loading-text-tagline {
@@ -19,16 +20,13 @@
     font-size: 12px;
 }
 
-.recent-posts-subtitle {
-    font-family: var(--small-font-family);
-}
 
 .post-title {
     font-family: var(--small-font-family);
-    font-size: 14px;
+    font-size: 20px;
 }
 
 .post-teaser {
     font-family: var(--small-font-family);
-    font-size: 12px;
+    font-size: 17px;
 }

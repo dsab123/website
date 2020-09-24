@@ -1,8 +1,8 @@
 :root {
 	--post-tag-color: #889194;
 	--big-font-color: #D9A5FF;
-	--big-font-family: 'Merriweather', serif;
-	--small-font-family: 'Montserrat', sans-serif;
+	--big-font-family: 'Libre Caslon Text', serif;
+	--small-font-family: 'Crimson Text', serif;;
 }
 
 .page-title {
@@ -17,11 +17,12 @@
 
 .intro-text {
     font-family: var(--big-font-family);
+    font-size: 16px;
 }
 
 .book-title {
     font-family: var(--big-font-family);
-    font-size: 1.2em;
+    font-size: 24px;
     text-align: left;
 }
 
@@ -37,7 +38,7 @@
 }
 
 .top-money-plea {
-    font-size: 14px;
+    font-size: 22px;
     font-style: italic;
     font-family: var(--small-font-family);
     text-decoration: none;
@@ -66,7 +67,7 @@
 .summary-detail {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 13em;
 }
 
@@ -75,7 +76,7 @@
     padding: 8px;
     text-decoration: none;
     font-family: var(--big-font-family);
-    font-size: 14px;
+    font-size: 17px;
 }
 
 .coming-soon {
@@ -99,7 +100,7 @@
 
 @media screen and (max-width: 768px) {
     .book-title {
-        font-size: 15px;
+        font-size: 20px;
         text-align: center;
     }
 
@@ -128,7 +129,7 @@
     .book-summary {
         font-style: italic;
         font-family: var(--small-font-family);
-        font-size: 14px;
+        font-size: 20px;
         text-align: center;
     }
 

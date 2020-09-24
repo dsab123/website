@@ -1,12 +1,13 @@
 :root {
 	--post-tag-color: #889194;
 	--big-font-color: #D9A5FF;
-	--big-font-family: 'Merriweather', serif;
-	--small-font-family: 'Montserrat', sans-serif;
+	--big-font-family: 'Libre Caslon Text', serif;
+	--small-font-family: 'Crimson Text', serif;;
 }
 
 .page-title {
 	font-family: var(--big-font-family);
+	font-size: 24px;
 }
 
 .post-image {
@@ -67,12 +68,16 @@
 	text-decoration: none;
 	cursor: pointer;
 	font-family: var(--big-font-family);
-	font-size: 14px;
+	font-size: 16px;
 }
 
-/* TODO reuse the dupe of this class in home */
+.related-posts-text {
+	font-size: 18px;
+}
+
 .post-links {
-    text-decoration: none;
+	text-decoration: none;
+	font-size: 20px;
 }
 
 .dim-overlay {
@@ -81,6 +86,7 @@
 
 .post-contents {
 	white-space: normal;
+	font-size: 20px;
 }
 
 
@@ -100,12 +106,21 @@
 	}
 
 	.post-tag {
-		font-size: 12px;
+		font-size: 16px;
 		margin-top: 10px;
 	}
 
 	.post-tag-container {
 		padding-bottom: 8px;
+	}
+
+	.related-posts-text {
+		font-size: 17px;
+	}
+
+	.post-links {
+		text-decoration: none;
+		font-size: 18px;
 	}
 
 	.post-image {
