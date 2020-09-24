@@ -1,13 +1,15 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {inject} from 'aurelia-framework';
+import {Router} from 'aurelia-router';
 import {PostApi} from '../api/postApi';
 
-@inject(PostApi, EventAggregator)
+@inject(PostApi, EventAggregator, Router)
 export class Home {
     
-    constructor(PostApi, EventAggregator) { 
+    constructor(PostApi, EventAggregator, Router) { 
         this.postApi = PostApi;
         this.eventAggregator = EventAggregator;
+        this.router = Router;
 
         this.message = "Blogs";
         this.postsList = [];
@@ -15,6 +17,10 @@ export class Home {
         this.isLoading = true;
         this.initialLoadingText = "Loading";
         this.loadingText = '';
+
+        // have to do this because aurelia automatically prepends the title from app.js to the residual
+        // title from the last page :facepalm:
+        this.router.title = '';
     }
 
     sleep(milliseconds) {

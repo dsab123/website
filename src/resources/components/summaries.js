@@ -15,7 +15,11 @@ export class Summaries {
         this.intro = "I like to read pretty widely, from tech to theology to bestsellers. Below you'll find a review for each of the books I've read, along with a link to buy. Drop me a line if you purchase any of these!";
         this.disclaimer = "I'm a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.";
         this.summaries = [];
-        this.flag = false;        
+        this.flag = false;
+
+        // have to do this because aurelia automatically prepends the title from app.js to the residual
+        // title from the last page :facepalm:
+        this.router.title = '';
     }
 
     activate() {

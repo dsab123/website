@@ -5,8 +5,6 @@ export class App {
   }
    
   configureRouter(config, router) {
-    //config.title = 'Daniel Sabbagh';
-
     config.map([
       {
         route: ['', 'home', 'summaries'], 
@@ -59,7 +57,7 @@ export class App {
 
     // TODO
     // config.mapUnknownRoutes('view-model');
-    
+
     this.router = router;
   }
 }
