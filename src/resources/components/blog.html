@@ -18,8 +18,8 @@
 
         <div show.bind="!alwaysHideRelatedPosts">
             <div class="post-tag-container" show.bind="postTags">
-                <div class="post-tag-header">
-                    related:
+                <div>
+                    <p>related:</p>
                 </div>
                 <div class="post-tags">
                     <a class="post-tag" repeat.for="tag of postTags" click.delegate='showRelatedPostsByTag(tag, !showRelatedPosts)'>${tag}</a>

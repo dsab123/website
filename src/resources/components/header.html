@@ -10,7 +10,7 @@
       
     <div class="header">
         <div class="logo-row">
-            <div class="title" href=""></div>
+            <a href><div class="title"></div></a>
             <div class="${hamburgerOpen ? 'hamburger toggle' : 'hamburger'}" click.delegate="toggleHamburger()">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
@@ -32,7 +32,7 @@
             <a class="nav-item" repeat.for="nav of router.navigation" 
                 class="${nav.isActive ? 'active' : ''}" 
                 href.bind="nav.href">
-                ${nav.config.name | menuFilters : convertNavItems}&nbsp;&nbsp;
+                ${nav.config.name | menuFilters : convertNavItems}
             </a>
         </div>
     </div>

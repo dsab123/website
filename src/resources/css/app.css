@@ -5,15 +5,15 @@
 }
 
 body {
-    background-color: #212324;
+    background-color: #d0cfd6;
 }
 
 p, h1, h2, h3, h4 {
-    color: #fff;
+    /* color: #fff; */
 }
 
 a {
-    color: #61c0ff;
+    color: #212324;
 }
 
 .top-bar {
