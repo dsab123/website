@@ -22,6 +22,7 @@
 .book-title {
     font-family: var(--big-font-family);
     font-size: 1.2em;
+    text-align: left;
 }
 
 .disclaimer-text {
@@ -32,6 +33,7 @@
 .book-summary {
     font-style: italic;
     font-family: var(--small-font-family);
+    text-align: left;
 }
 
 .top-money-plea {
@@ -98,6 +100,7 @@
 @media screen and (max-width: 768px) {
     .book-title {
         font-size: 15px;
+        text-align: center;
     }
 
     .card {
@@ -126,6 +129,7 @@
         font-style: italic;
         font-family: var(--small-font-family);
         font-size: 14px;
+        text-align: center;
     }
 
     .summary-detail {
