@@ -6,7 +6,6 @@ export class Header {
 
     constructor(Router) {
         this.router = Router;
-        this.title = "Daniel Sabbagh";
 
         // for the silly little value converter for nav items
         this.convertNavItems = false;

@@ -9,8 +9,8 @@
     </div>
       
     <div class="header">
-        <div class="logo-title">
-            <a class="title" href="">${title}</a>
+        <div class="logo-row">
+            <div class="title" href=""></div>
             <div class="${hamburgerOpen ? 'hamburger toggle' : 'hamburger'}" click.delegate="toggleHamburger()">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
@@ -28,14 +28,12 @@
         </div>
 
         <!-- desktop (regular) nav -->
-        <div class="header-top">
-            <div class="nav-items">
-                <a class="nav-item" repeat.for="nav of router.navigation" 
-                    class="${nav.isActive ? 'active' : ''}" 
-                    href.bind="nav.href">
-                    ${nav.config.name | menuFilters : convertNavItems}&nbsp;&nbsp;
-                </a>
-            </div>
+        <div class="navigation">
+            <a class="nav-item" repeat.for="nav of router.navigation" 
+                class="${nav.isActive ? 'active' : ''}" 
+                href.bind="nav.href">
+                ${nav.config.name | menuFilters : convertNavItems}&nbsp;&nbsp;
+            </a>
         </div>
     </div>
 

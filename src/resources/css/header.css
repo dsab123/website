@@ -6,46 +6,40 @@
     --logo-bottom-border-color: #DE9E2C;
 }
 
-.title {
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 30px;
-    text-decoration: none;
-    font-family: var(--big-font-family);
-    color: var(--big-font-color);
+.header {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.logo-title {
-    background: var(--logo-background-color);
-    border-bottom: 3px solid var(--logo-bottom-border-color);
+.logo-row {
     padding-left: 6px;
-    padding-top: 5px;
     padding-right: 6px;
-    padding-bottom: 10px;
-    float: left;
+    display: flex;
+
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    background-image: url("../../../images/logo.png");
+    background-size: cover;
+    width: 350px;
+    height: 45px;
+    cursor: pointer;
 }
 
 .nav-item {
     text-decoration: none;
     font-family: var(--big-font-family);
-    font-size: 20px;
-    --big-font-color: #D9A5FF;
 }
 
-.nav-items {
-    float: right;
-}
-
-.header-top {
+.navigation {
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-end;
     padding-bottom: 5px;
-}
-
-.header {
-    background-image: linear-gradient(#212425, #3F4244);
-    margin-bottom: 50px;
+    margin-top: 10px;
 }
 
 .converter {
@@ -71,7 +65,7 @@
 }
 
 .hamburger-menu {
-    display: none;
+    display: flex;
     flex-direction: column;
     text-align: center;
 
@@ -80,6 +74,7 @@
     transition-duration: .5s;
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
     overflow-y: hidden;
+    margin-top: 20px;
 }
 
 @media all and (max-width: 1024px) {
@@ -89,27 +84,40 @@
 }
 
 @media all and (max-width: 768px) {
+    .navigation {
+        display: none;
+    }
+
     .nav-items {
         display: none;
     }
 
     .header {
-        margin-bottom: 0px;
+        margin-bottom: 30px;
         display: flex;
         flex-direction: column;
     }
 
-    .logo-title {
-        float: none;
+    .logo-row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .title {
+        justify-content: space-between;
+        background-image: url("../../../images/logo-mobile.png");
+        background-size: cover;
+        width: 120px;
+        height: 70px;
+        cursor: pointer;
     }
 
     /* hamburger icon */
     .hamburger {
         cursor: pointer;
-        float: right;
         display: inline-block;
+        margin-top: 10px;
     }
-
     
     /* hamburger menu */
     .slide-hamburger-menu-in {
@@ -117,7 +125,6 @@
         cursor: pointer;
         max-height: 500px;
     }
-
     
     .bar1, .bar2, .bar3 {
         width: 35px;
