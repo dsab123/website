@@ -3,12 +3,12 @@
     <require from="aurelia-markdown"></require>
     <require from="../value-converters/blog-post-blurb-prettifier"></require>
 
-    <div class="blog-layout">
+    <div class="${dimPostContents ? 'dim-overlay blog-layout' : 'blog-layout'}">
 
         <h2 class="page-title">${postTitle}</h2>
 
         <div class="${postContents ? 'preload-post slide-post-in post-contents' : 'preload-post post-contents'}"> 
-                <p class="${dimPostContents ? 'dim-overlay post-contents' : 'post-contents'}">
+                <p class="post-contents">
                     <markdown class="post-contents-container" ref="postContentsContainer">
                     </markdown>
                 </p>

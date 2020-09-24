@@ -13,10 +13,17 @@ export class Summary {
         this.bookSummary = BookSummary;
         this.eventAggregator = EventAggregator;
         this.router = Router;
+
+        this.dimSummaryContents = false;
     }
 
-    attached() {
-        // nothing to do here?
+    async attached() {
+        this.dimSummaryContents = true;
+
+        // poor man's awaitable scroll
+        this.scrollToTopBeforeNewPostIsLoaded();
+        await this.sleep(800);
+
         let converter = new showdown.Converter({
             simpleLineBreaks: 'true'
         });
@@ -26,6 +33,8 @@ export class Summary {
         if (this.summaryContents) {
             this.summaryContents.innerHTML = contents;
         }
+
+        this.dimSummaryContents = false;
     }
 
     populateSummaryInfo(source) {
@@ -58,5 +67,15 @@ export class Summary {
 
             this.eventAggregator.publish('contentLoaded');
         }
+    }
+
+    async scrollToTopBeforeNewPostIsLoaded() {
+        document.querySelector('.top-bar')?.scrollIntoView({ 
+            behavior: 'smooth' , block: 'start'
+        });
+    }
+
+    sleep = (milliseconds) => {
+        return new Promise(resolve => setTimeout(resolve, milliseconds))
     }
 }

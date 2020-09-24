@@ -33,9 +33,13 @@ export class Blog {
         this.blogpostId = urlParams.blogpostId;   
         let data = '';
 
+        this.dimPostContents = true;
+
+        this.scrollToTopBeforeNewPostIsLoaded();
+        await this.sleep(800);
+
         await this.getBlogPostInfo(this.blogpostId);
 
-        
         this.router.title = `${this.postTitle} - Daniel Sabbagh`;
 
         // if we have slug we don't need to wait for postContents to give us slug from api
@@ -46,32 +50,35 @@ export class Blog {
         });
 
         this.postContents = converter.makeHtml(data);
-        this.setPostContentsContainer();    
-    }
-
-    attached() {
         this.setPostContentsContainer();
+        
+        this.dimPostContents = false;
     }
 
-    async getBlogPostInfo(postId) {
-        // dim postContents to indicate new post incoming
+    async attached() {
         this.dimPostContents = true;
 
-        if (!postId) {
-            postId = this.getDefaultPostId();
-        }
-
+        this.setPostContentsContainer();
+        
         // poor man's awaitable scroll
         this.scrollToTopBeforeNewPostIsLoaded();
         await this.sleep(800);
 
+
+        this.dimPostContents = false;
+    }
+
+    async getBlogPostInfo(postId) {
+        if (!postId) {
+            postId = this.getDefaultPostId();
+        }
+        
         const data = await this.postApi.getBlogPostInfo(postId);
 
         this.postTitle = data.title;
         this.postTags = data.tags;
         this.slug = data.slug;
 
-        this.dimPostContents = false;
         this.hasFirstPostBeenLoadedd = true;
     }
 

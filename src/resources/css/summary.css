@@ -5,6 +5,10 @@
 	--small-font-family: 'Montserrat', sans-serif;
 }
 
+.dim-overlay {
+	opacity: 0.3;
+}
+
 .summary-book-title, .review {
 	font-family: var(--big-font-family);
 	font-size: 24px;

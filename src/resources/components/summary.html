@@ -5,7 +5,7 @@
     <require from="../value-converters/summary-payoff-filter"></require>
     <require from="../value-converters/asset-context"></require>
 
-    <div class="outer">
+    <div class="${dimSummaryContents ? 'dim-overlay outer' : 'outer'}">
 
         <p class="summary-book-title">${title}</p>
         <br>
@@ -36,7 +36,7 @@
         <p class="review">Review</p>
         <br>
 
-        <p class="summary-contents">
+        <p class="${dimSummaryContents ? 'dim-overlay summary-contents' : 'summary-contents'}">
             <markdown ref="summaryContents">
             </markdown>
         </p>
