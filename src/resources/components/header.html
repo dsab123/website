@@ -23,7 +23,7 @@
             <a repeat.for="nav of router.navigation" 
                 class="${nav.isActive ? 'hamburger-nav-item active' : 'hamburger-nav-item'}" 
                 click.delegate="toggleHamburgerAndNavigate(nav.href)">
-                ${nav.title | menuFilters : convertNavItems}
+                ${nav.config.name | menuFilters : convertNavItems}
             </a>
         </div>
 
@@ -33,7 +33,7 @@
                 <a class="nav-item" repeat.for="nav of router.navigation" 
                     class="${nav.isActive ? 'active' : ''}" 
                     href.bind="nav.href">
-                    ${nav.title | menuFilters : convertNavItems}&nbsp;&nbsp;
+                    ${nav.config.name | menuFilters : convertNavItems}&nbsp;&nbsp;
                 </a>
             </div>
         </div>

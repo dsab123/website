@@ -1,14 +1,16 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {inject} from 'aurelia-framework';
+import {Router} from 'aurelia-router';
 import {PostApi} from '../api/postApi';
 
 const showdown = require('showdown');
 
-@inject(PostApi, EventAggregator)
+@inject(PostApi, EventAggregator, Router)
 export class Blog {
-    constructor(PostApi, EventAggregator) {
+    constructor(PostApi, EventAggregator, Router) {
         this.postApi = PostApi;
         this.eventAggregator = EventAggregator;
+        this.router = Router;
 
         // properties for main post
         this.postTitle = null;
@@ -32,6 +34,9 @@ export class Blog {
         let data = '';
 
         await this.getBlogPostInfo(this.blogpostId);
+
+        
+        this.router.title = `${this.postTitle} - Daniel Sabbagh`;
 
         // if we have slug we don't need to wait for postContents to give us slug from api
         data = await this.postApi.getBlogPostContents(this.slug || urlParams?.slug);
