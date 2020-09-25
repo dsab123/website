@@ -49,13 +49,70 @@
 
 .contact-list-item {
     margin-right: 20px;
+    padding-bottom: 10px;
+    position: relative;
 }
 
 .social-icon {
     height: 30px;
     width: 30px;
     cursor: pointer;
+    position: relative;
 }
+
+.contact-list-item:before, .contact-list-item:after {
+    content: "";
+    position: absolute;
+    bottom: 3px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #000;
+}
+
+.contact-list-item:before {
+    opacity: 0;
+    -webkit-transform: translateY(-8px);
+            transform: translateY(-8px);
+    -webkit-transition: opacity 0s, -webkit-transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: opacity 0s, -webkit-transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s;
+    transition: transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s, -webkit-transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+.contact-list-item:after {
+    opacity: 0;
+    -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+    -webkit-transition: opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.contact-list-item:hover:before, .contact-list-item:hover:after, .contact-list-item:focus:before, .contact-list-item:focus:after {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+}
+
+.contact-list-item:hover:before, .contact-list-item:focus:before {
+    -webkit-transition: opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.contact-list-item:hover:after, .contact-list-item:focus:after {
+    -webkit-transition: opacity 0s 0.2s, -webkit-transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: opacity 0s 0.2s, -webkit-transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s 0.2s;
+    transition: transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s 0.2s, -webkit-transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+
+
 
 .coffee-cup {
     height: 18px;
@@ -79,7 +136,7 @@ p {
     display: flex;
     flex-direction: row;
     margin-bottom: 15px;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-top: 40px;
     margin-left: 10px;
     margin-right: 10px;
@@ -89,7 +146,7 @@ p {
     border: white;
     border-style: solid;
     height: 260px;
-    width: 330px;
+    width: 370px;
     border: none;
     background-color: #889194;
 }
@@ -97,11 +154,10 @@ p {
 .coffee-cups {
     display: flex;
     align-items: flex-end;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin-top: 20px;
     margin-left: 40px;
-    margin-right: 40px;
-    width: 240px;
+    margin-right: 20px;
 }
 
 .donate-submit-button {
@@ -140,7 +196,7 @@ p {
     border: white;
     border-style: solid;
     height: 260px;
-    width: 330px;
+    width: 370px;
     border: none;
     background-color: #505557;
     text-align: center;
