@@ -27,6 +27,12 @@ a {
         width: 90vw;
     }
 
+    .sticky-header {
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0;
+    }
+
     code {
         white-space: pre-wrap;
     }

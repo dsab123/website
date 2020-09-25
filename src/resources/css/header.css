@@ -2,22 +2,21 @@
     --big-font-color: #D9A5FF;
     --big-font-family: 'Libre Caslon Text', serif;
     --small-font-family: 'Crimson Text', serif;;
-    --logo-background-color: #9D2B1C;
-    --logo-bottom-border-color: #DE9E2C;
+    --background-color: #d0cfd6;
 }
 
-.header {
-    margin-top: 20px;
+.header-content {
+    padding-top: 20px;
     margin-bottom: 50px;
     display: flex;
     justify-content: space-between;
+    background-color: var(--background-color);
 }
 
 .logo-row {
     padding-left: 6px;
     padding-right: 6px;
     display: flex;
-
 }
 
 .title {
@@ -107,11 +106,13 @@
     transform: rotate(2deg);
 }
 
+/*
 .converter-text {
     font-family: var(--small-font-family);
     color: var(--big-font-color);
     transform: rotate(4deg);
 }
+*/
 
 .hamburger {
     display: none;
@@ -127,8 +128,7 @@
     transition-duration: .5s;
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
     overflow-y: hidden;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 @media all and (max-width: 1024px) {
@@ -146,7 +146,7 @@
         display: none;
     }
 
-    .header {
+    .header-content {
         margin-bottom: 0px;
         display: flex;
         flex-direction: column;
@@ -206,7 +206,7 @@
         text-decoration: none;
         font-family: var(--big-font-family);
         font-size: 28px;
-        --big-font-color: #D9A5FF;
+        --big-font-color: #D9A5FF; /* what is this? lol */
         margin-top: 20px;
     }
 
