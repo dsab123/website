@@ -13,12 +13,9 @@ export class Summary {
         this.bookSummary = BookSummary;
         this.eventAggregator = EventAggregator;
         this.router = Router;
-
-        this.dimSummaryContents = false;
     }
 
     async attached() {
-        //this.dimSummaryContents = true;
         this.eventAggregator.publish('dim-content');
 
         // poor man's awaitable scroll
@@ -35,7 +32,6 @@ export class Summary {
             this.summaryContents.innerHTML = contents;
         }
 
-        this.dimSummaryContents = false;
         this.eventAggregator.publish('undim-content');
     }
 
