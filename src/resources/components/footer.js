@@ -7,7 +7,7 @@ export class Footer {
         this.eventAggregator = EventAggregator;
     
         this.isContentLoaded = false;
-        this.subscription = this.eventAggregator.subscribe('contentLoaded', response => {
+        this.subscription = this.eventAggregator.subscribe('content-loaded', response => {
             this.isContentLoaded = true;
         });
     }

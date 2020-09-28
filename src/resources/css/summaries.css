@@ -26,9 +26,16 @@
     text-align: left;
 }
 
+.book-author {
+    font-family: var(--small-font-family);
+    font-size: 20px;
+    text-align: left;
+}
+
 .disclaimer-text {
     font-style: italic;
     font-family: var(--small-font-family);
+    margin-bottom: 40px;
 }
 
 .book-summary {
@@ -45,14 +52,15 @@
 }
 
 .card {
-    margin-bottom: 20px;
+    padding-bottom: 25px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    margin-top: 25px;
 }
 
 .book-image {
-    height: 200px;
+    height: 240px;
     width: 150px;
     border-radius: 5px;
 }
@@ -61,14 +69,14 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-left: 10px;
+    padding-left: 30px;
 }
 
 .summary-detail {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 13em;
+    width: 22.5em;
 }
 
 .read-more {
@@ -76,16 +84,19 @@
     padding: 8px;
     text-decoration: none;
     font-family: var(--big-font-family);
-    font-size: 17px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
 }
 
 .coming-soon {
-    color: #212324;
-}
-
-.read-more-link {
+    background: var(--post-tag-color);
+    padding: 8px;
     text-decoration: none;
-    cursor: pointer;
+    font-family: var(--big-font-family);
+    font-size: 16px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .hidden {
@@ -93,15 +104,26 @@
 }
 
 .amazon-link {
-    height: 32px;
-    width: 32px;
-    padding-top: 5px;
+    color: #212324;
+    background: var(--post-tag-color);
+    padding: 8px;
+    text-decoration: none;
+    font-family: var(--big-font-family);
+    font-size: 16px;
+    text-align: left;
 }
 
 @media screen and (max-width: 768px) {
     .book-title {
         font-size: 20px;
         text-align: center;
+        margin-top: 25px;
+    }
+
+    .book-author {
+        font-size: 18px;
+        text-align: center;
+        margin-top: 5px;
     }
 
     .card {
@@ -134,10 +156,43 @@
     }
 
     .summary-detail {
+        flex-grow: 0;
         margin-top: 10px;
         display: flex;
-        flex-direction: row;
-        width: 18em;
-        justify-content: space-evenly;
+        flex-direction: column;
+        width: 12.4em;
+        justify-content: center;
     }
+
+    .read-more {
+        background: var(--post-tag-color);
+        padding: 8px;
+        text-decoration: none;
+        font-family: var(--big-font-family);
+        font-size: 17px;
+        text-align: center;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    .amazon-link {
+        color: #212324;
+        background: var(--post-tag-color);
+        padding: 8px;
+        text-decoration: none;
+        font-family: var(--big-font-family);
+        font-size: 17px;
+        text-align: center;
+    }
+
+    .coming-soon {
+        color: #212324;
+        background: var(--post-tag-color);
+        padding: 8px;
+        text-decoration: none;
+        font-family: var(--big-font-family);
+        font-size: 17px;
+        text-align: center;
+        margin-bottom: 10px;
+    }    
 }

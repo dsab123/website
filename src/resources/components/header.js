@@ -1,11 +1,13 @@
 import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
+import {EventAggregator} from 'aurelia-event-aggregator';
 
-@inject(Router)
+@inject(Router, EventAggregator)
 export class Header {
 
-    constructor(Router) {
+    constructor(Router, EventAggregator) {
         this.router = Router;
+        this.eventAggregator = EventAggregator;
 
         // for the silly little value converter for nav items
         this.convertNavItems = false;
@@ -22,12 +24,24 @@ export class Header {
         this.convertMenuItemsText = this.convertMenuItemsTexts[++this.convertMenuItemsCounter % 2];
     }
 
+    toggleHamburgerAndNavigate(nav) {
+        this.toggleHamburger();
+        this.navigate(nav);
+    }
+
     toggleHamburger() {
         this.hamburgerOpen = !this.hamburgerOpen;
     }
 
-    toggleHamburgerAndNavigate(href) {
-        this.toggleHamburger();
-        this.router.navigate(href);
+    navigate(nav) {
+        const currentModuleId = this.router.currentInstruction.config.moduleId.split("/").slice(-1)[0];
+        const newModuleId = nav.config.moduleId.split("/").slice(-1)[0];
+        
+        // we want to prevent dimming in/out if the source and destination route correspond to the same module
+        if (currentModuleId !== newModuleId) {
+            this.eventAggregator.publish('dim-content');
+        }
+
+        this.router.navigate(nav.href);
     }
 }

@@ -5,9 +5,11 @@
 }
 
 .top-horizontal-separator {
-    height: 1px;
+    height: 2px;
     background: var(--separator-color);
     margin-top: 20px;
+    width: 750px;
+    margin-left: -15px;
 }
 
 .personal-info {
@@ -110,10 +112,6 @@
     transition: transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s 0.2s, -webkit-transform 0s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-
-
-
-
 .coffee-cup {
     height: 18px;
     width: 15px;
@@ -138,15 +136,13 @@ p {
     margin-bottom: 15px;
     justify-content: space-evenly;
     margin-top: 40px;
-    margin-left: 10px;
-    margin-right: 10px;
 }
 
 .donate-box {
     border: white;
     border-style: solid;
     height: 260px;
-    width: 370px;
+    width: 390px;
     border: none;
     background-color: #889194;
 }
@@ -156,8 +152,10 @@ p {
     align-items: flex-end;
     justify-content: space-evenly;
     margin-top: 20px;
-    margin-left: 40px;
-    margin-right: 20px;
+    width: 330px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
 }
 
 .donate-submit-button {
@@ -184,19 +182,18 @@ p {
 }
 
 .footer-money-plea {
-    margin-top: 25px;
-    margin-left: 40px;
-    margin-right: 40px;
     text-align: center;
     font-family: var(--small-font-family);
     font-size: 18px;
+    width: 300px;
+    margin: auto;
 }
 
 .email-subscribe-box {
     border: white;
     border-style: solid;
     height: 260px;
-    width: 370px;
+    width: 390px;
     border: none;
     background-color: #505557;
     text-align: center;
@@ -257,6 +254,14 @@ p {
 }
 
 @media screen and (max-width: 768px) {
+    .top-horizontal-separator {
+        height: 2px;
+        background: var(--separator-color);
+        margin-top: 20px;
+        width: 100%;
+        margin-left: 0px;
+    }
+
     .headshot {
         margin-top: 15px;
         margin-right: 20px;

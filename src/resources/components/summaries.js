@@ -33,11 +33,14 @@ export class Summaries {
         this.summaries = data;
       });
 
-      this.eventAggregator.publish('contentLoaded');
+      this.eventAggregator.publish('content-loaded');
+      this.eventAggregator.publish('undim-content');
     }
 
     populateBookSummary(summaryId) {
-      let summary = this.summaries.find(summary => summary.summary_id == summaryId);
+      this.eventAggregator.publish('dim-content');
+
+      const summary = this.summaries.find(summary => summary.summary_id == summaryId);
 
       this.bookSummary.summary_id = summary.summary_id;
       this.bookSummary.title = summary.title;

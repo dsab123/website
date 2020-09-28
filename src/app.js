@@ -1,7 +1,11 @@
 import {PLATFORM} from 'aurelia-pal';
+import {inject} from 'aurelia-framework';
+import {Dimmer} from 'resources/utility/dimmer';
 
+@inject(Dimmer)
 export class App {
-  constructor() {
+  constructor(Dimmer) {
+    this.dimmer = Dimmer;
   }
    
   configureRouter(config, router) {

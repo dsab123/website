@@ -1,6 +1,7 @@
 <template>
     <require from="../css/blogs.css"></require>
     <require from="../value-converters/blog-post-blurb-prettifier"></require>
+    <require from="../value-converters/asset-context"></require>
 
     <h2 class="page-title">Recent Posts</h2>
 
@@ -9,24 +10,20 @@
     </div>
 
     <div show.bind="!isLoading">
-        <ul>
-            <li class="post-title" repeat.for="post of postsList">
-                <a href="/#/blog/${post.blogpost_id}/${post.slug}" class="post-links">
-                ${post.title}
-                <ul>
-                    <li class="post-teaser">
-                        ${post.teaser | blogPostBlurbPrettifier}
-                    </li>
-                </ul>
-                </a>
-            </li>
-        </ul>
-        <!--
-        <div repeat.for="post of postsList">
-            <div class="card">
+        <div class="card-recent-posts-container">        
+            <div class="card-post-container" repeat.for="post of postsList">
+                <!-- <a href="/#/blog/${post.blogpost_id}/${post.slug}" class="post-links"> -->
+                <a class="post-links" click.delegate="navigateToPost(post.blogpost_id)">
 
+                    <div class="card-post-content">
+                        <img class="card-post-image" src="../../../images/silver.jpg">
+                        <p class="card-post-title">${post.title}</p>
+                        <p class="card-post-teaser">${post.teaser | blogPostBlurbPrettifier}</p>
+                    </div>
+                </a>
             </div>
         </div>
-        -->
+
     </div>
+
 </template>

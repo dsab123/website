@@ -17,7 +17,7 @@ export class Talks {
     }
 
     attached() {
-        this.eventAggregator.publish('contentLoaded');
+        this.eventAggregator.publish('content-loaded');
     }
 
     // will want to retrieve these more intelligently at some point in the future, obvi

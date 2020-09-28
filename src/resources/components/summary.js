@@ -18,7 +18,8 @@ export class Summary {
     }
 
     async attached() {
-        this.dimSummaryContents = true;
+        //this.dimSummaryContents = true;
+        this.eventAggregator.publish('dim-content');
 
         // poor man's awaitable scroll
         this.scrollToTopBeforeNewPostIsLoaded();
@@ -35,6 +36,7 @@ export class Summary {
         }
 
         this.dimSummaryContents = false;
+        this.eventAggregator.publish('undim-content');
     }
 
     populateSummaryInfo(source) {
@@ -65,7 +67,7 @@ export class Summary {
             this.router.title = `${this.title} - Daniel Sabbagh`;
             this.contents = await this.postApi.getBookSummaryContents(this.slug);
 
-            this.eventAggregator.publish('contentLoaded');
+            this.eventAggregator.publish('content-loaded');
         }
     }
 

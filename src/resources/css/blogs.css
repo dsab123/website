@@ -7,6 +7,7 @@
 
 .post-links {
     text-decoration: none;
+    cursor: pointer;
 }
 
 .page-title, 
@@ -20,13 +21,53 @@
     font-size: 12px;
 }
 
-
-.post-title {
-    font-family: var(--small-font-family);
-    font-size: 20px;
+.card-recent-posts-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;   
 }
 
-.post-teaser {
+.card-post-container {
+    width: 260px;
+    height: 400px;
+    border: 1px solid gray;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    transition: transform .2s;
+}
+
+.card-post-container:hover {
+    transform: scale(1.1);
+}
+
+
+.card-post-content {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.card-post-image {
+    width: 260px;
+    height: 260px;
+}
+
+.card-post-title {
+    font-family: var(--big-font-family);
+    font-size: 20px;
+    text-align: center;
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.card-post-teaser {
     font-family: var(--small-font-family);
-    font-size: 17px;
+    font-size: 15px;
+    text-align: center;
+    font-style: italic;
+    margin-left: 10px;
+    margin-right: 10px;
+    flex-grow: 2;
 }

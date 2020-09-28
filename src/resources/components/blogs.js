@@ -38,7 +38,8 @@ export class Home {
 
         this.getBlogPostMetadata().then(() => {
             this.isLoading = false;
-            this.eventAggregator.publish('contentLoaded');
+            this.eventAggregator.publish('content-loaded');
+            this.eventAggregator.publish('undim-content');
         });
     }
 
@@ -50,5 +51,12 @@ export class Home {
             this.loadingText = this.initialLoadingText + dots[count++ % dots.length];            
             await this.sleep(400);
         }
+    }
+
+    navigateToPost(blogpostId) {
+        this.eventAggregator.publish('dim-content');
+        const blogpost = this.postsList.find(blogpost => blogpost.blogpost_id == blogpostId);
+
+        this.router.navigate(`blog/${blogpost.blogpost_id}/${blogpost.slug}`);
     }
 }

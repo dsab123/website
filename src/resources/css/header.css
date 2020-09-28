@@ -34,6 +34,7 @@
     font-family: var(--big-font-family);
     margin-right: 10px;
     position: relative;
+    cursor: pointer;
 }
 
 .nav-item:before, .nav-item:after {

@@ -13,21 +13,27 @@
         <div repeat.for="summary of summaries">
             <div class="card">
                 <img class="book-image" src="${summary.image_uri | assetContext}">
-                <!-- <img class="book-image" src="../../../images/spurgeons_sorrows.jpg"> -->
+            <!--
+                <img class="book-image" 
+                src="${summary.image_uri | assetContext}"
+                srcset="${summary.image_uri | assetContext}, "
+                sizes="">
+            -->
                 <div class="card-text">
-                    <p class="book-title">${summary.title}, by ${summary.author}</p>
+                    <div>
+                        <p class="book-title">${summary.title}</p>
+                        <p class="book-author">${summary.author}</p>
+                    </div>
                     <p class="book-summary">${summary.teaser}</p>
                     <div class="summary-detail">
-                        <p class="${summary.is_ready ? 'read-more' : 'hidden'}">
-                            <a class="read-more-link" click.delegate='populateBookSummary(summary.summary_id)'>
-                                read more
-                            </a>
-                        </p>
-                        <p class="${summary.is_ready ? 'hidden' : 'read-more coming-soon'}">
-                            coming soon!
+                        <a class="${summary.is_ready ? 'read-more' : 'hidden'}" click.delegate='populateBookSummary(summary.summary_id)'>
+                            read review
+                        <a>
+                        <p class="${summary.is_ready ? 'hidden' : 'coming-soon'}">
+                            review coming soon
                         </p>
 
-                        <a href="${summary.link}" target="_blank"><img class="amazon-link" src="../../../images/amazon.png"></a>
+                        <a class="amazon-link" href="${summary.link}" target="_blank">buy from amazon</a>
                     </div>
                 </div>
             </div>

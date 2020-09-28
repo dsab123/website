@@ -24,7 +24,7 @@
         <div slide-open.bind="hamburgerOpen" class="hamburger-menu slide-hamburger-menu-in">
             <a repeat.for="nav of router.navigation" 
                 class="${nav.isActive ? 'hamburger-nav-item active' : 'hamburger-nav-item'}" 
-                click.delegate="toggleHamburgerAndNavigate(nav.href)">
+                click.delegate="toggleHamburgerAndNavigate(nav)">
                 ${nav.config.name | menuFilters : convertNavItems}
             </a>
         </div>
@@ -33,7 +33,7 @@
         <div class="navigation">
             <a class="nav-item" repeat.for="nav of router.navigation" 
                 class="${nav.isActive ? 'active' : ''}" 
-                href.bind="nav.href">
+                click.delegate="navigate(nav)">
                 ${nav.config.name | menuFilters : convertNavItems}
             </a>
         </div>

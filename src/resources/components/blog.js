@@ -16,7 +16,6 @@ export class Blog {
         this.postTitle = null;
         this.postContents = null;
         this.postTags = null;
-        this.dimPostContents = false;
         this.hasFirstPostBeenLoadedd = false;
         this.blogpostId = 1;
         this.slug = '';
@@ -33,7 +32,7 @@ export class Blog {
         this.blogpostId = urlParams.blogpostId ?? this.blogpostId ?? 1;
         let data = '';
 
-        this.dimPostContents = true;
+        this.eventAggregator.publish('dim-content');
 
         this.scrollToTopBeforeNewPostIsLoaded();
         await this.sleep(800);
@@ -52,11 +51,11 @@ export class Blog {
         this.postContents = converter.makeHtml(data);
         this.setPostContentsContainer();
         
-        this.dimPostContents = false;
+        this.eventAggregator.publish('undim-content');
     }
 
     async attached() {
-        this.dimPostContents = true;
+        this.eventAggregator.publish('dim-content');
 
         this.setPostContentsContainer();
         
@@ -64,8 +63,7 @@ export class Blog {
         this.scrollToTopBeforeNewPostIsLoaded();
         await this.sleep(800);
 
-
-        this.dimPostContents = false;
+        this.eventAggregator.publish('undim-content');
     }
 
     async getBlogPostInfo(postId) {
@@ -91,7 +89,7 @@ export class Blog {
         // called from about with <compose> ... just going to hide the 
         // error like a n00b and forget about it
         if (!this.alwaysHideRelatedPosts) {
-            this.eventAggregator.publish('contentLoaded');
+            this.eventAggregator.publish('content-loaded');
         }
     }
 
