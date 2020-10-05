@@ -13,7 +13,7 @@ export class Blog {
         this.router = Router;
 
         // properties for main post
-        this.postTitle = null;
+        this.title = null;
         this.postContents = null;
         this.postTags = null;
         this.hasFirstPostBeenLoadedd = false;
@@ -39,7 +39,7 @@ export class Blog {
 
         await this.getBlogPostInfo(this.blogpostId);
 
-        this.router.title = `${this.postTitle} - Daniel Sabbagh`;
+        this.router.title = `${this.title} - Daniel Sabbagh`;
 
         // if we have slug we don't need to wait for postContents to give us slug from api
         data = await this.postApi.getBlogPostContents(this.slug || urlParams?.slug);
@@ -50,6 +50,14 @@ export class Blog {
 
         this.postContents = converter.makeHtml(data);
         this.setPostContentsContainer();
+
+        // manipulate og property tags for prerender caching
+        let s = document.getElementsByTagName('head')[0];
+        s.querySelector("[property='og:title']").content = this.title;
+        s.querySelector("[property='og:description']").content = `${this.teaser} ...`;
+        s.querySelector("[property='og:type']").content = 'article';
+        s.querySelector("[property='og:image']").content = '../../../images/silver.jpg';
+        console.log('done woot woot');
         
         this.eventAggregator.publish('undim-content');
     }
@@ -73,9 +81,10 @@ export class Blog {
         
         const data = await this.postApi.getBlogPostInfo(postId);
 
-        this.postTitle = data.title;
+        this.title = data.title;
         this.postTags = data.tags;
         this.slug = data.slug;
+        this.teaser = data.teaser;
 
         this.hasFirstPostBeenLoadedd = true;
     }
