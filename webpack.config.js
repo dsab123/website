@@ -32,7 +32,7 @@ const cssRules = [
 ];
 
 
-module.exports = ({ production } = {}, {extractCss, analyze, tests, hmr, port, host } = {}) => ({
+module.exports = ({ production } = {}, {extractCss, analyze, tests, hmr, port, host, ssr } = {}) => ({
   resolve: {
     extensions: ['.js'],
     modules: [srcDir, 'node_modules'],
@@ -243,7 +243,8 @@ module.exports = ({ production } = {}, {extractCss, analyze, tests, hmr, port, h
       'aurelia-testing': ['./compile-spy', './view-spy']
     }),
     new HtmlWebpackPlugin({
-      template: 'index.ejs',
+      filename: ssr ? 'index.ssr.html' : 'index.html',
+      template: ssr ? 'index.ssr.ejs' : 'index.ejs',
       metadata: {
         // available in index.ejs //
         title, baseUrl

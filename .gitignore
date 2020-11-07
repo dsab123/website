@@ -38,3 +38,9 @@ node_modules
 
 # env file
 .env
+
+# the zip
+*zip
+
+# the dependency tree graph
+packages.txt
