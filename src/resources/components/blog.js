@@ -57,8 +57,8 @@ export class Blog {
         s.querySelector("[property='og:description']").content = `${this.teaser} ...`;
         s.querySelector("[property='og:type']").content = 'article';
         s.querySelector("[property='og:image']").content = '../../../images/silver.jpg';
-        console.log('done woot woot');
-        
+
+        window.prerenderReady = true;
         this.eventAggregator.publish('undim-content');
     }
 
