@@ -62,6 +62,7 @@ export class App {
     // TODO
     // config.mapUnknownRoutes('view-model');
 
+    config.options.pushState = true;
     this.router = router;
   }
 }
