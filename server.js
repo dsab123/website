@@ -10,7 +10,7 @@ const prerenderToken = process.env.PRERENDER_TOKEN;
 const app = express();
 
 // Use prerender io middleware
-app.use(require('prerender-node').set('prerenderToken', 'p3NICJn2V2uodfrSquJr'));
+app.use(require('prerender-node').set('prerenderToken', prerenderToken));
 
 // Serve index.html on every url.
 app.get('*', (req, res) => {
